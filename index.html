@@ -167,6 +167,13 @@
     .videos .video-card:has(video.wide-video){grid-column:1/-1;grid-row:auto;width:min(100%,540px);justify-self:center}
     @media(max-width:760px){.videos .video-card:has(video.wide-video){grid-column:1/-1;width:min(100%,460px);justify-self:center}}
   .fashion-image-pair{grid-column:1/-1;width:min(100%,900px);justify-self:center;display:grid;grid-template-columns:1fr;gap:34px}.fashion-image-pair .project{width:100%;min-width:0}.fashion-image-pair .project img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#e8e6df}.fashion-image-pair .project-caption{padding:14px 4px 4px}@media(max-width:760px){.fashion-image-pair{width:100%;gap:24px}.fashion-image-pair .project img{aspect-ratio:16/9}}
+  
+    .project-grid .project:has(img[src*="89622c43-ac55-4f86-834c-494983d1a5b4"]),
+    .project-grid .project:has(img[src*="834fb1da-5e88-4e1d-a51d-48388f39f619"]){align-self:start}
+    .project-grid .project:has(img[src*="89622c43-ac55-4f86-834c-494983d1a5b4"]) img,
+    .project-grid .project:has(img[src*="834fb1da-5e88-4e1d-a51d-48388f39f619"]) img{display:block;width:100%;height:clamp(190px,22vw,380px);aspect-ratio:16/9;object-fit:contain;background:#e8e6df}
+    @media(max-width:760px){.project-grid .project:has(img[src*="89622c43-ac55-4f86-834c-494983d1a5b4"]) img,.project-grid .project:has(img[src*="834fb1da-5e88-4e1d-a51d-48388f39f619"]) img{height:clamp(190px,42vw,320px)}}
+
   </style>
 </head>
 <body>
