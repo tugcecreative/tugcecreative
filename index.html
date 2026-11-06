@@ -42,6 +42,9 @@
     @media(max-width:520px){.videos .video-grid{grid-template-columns:1fr}}
     .service-discover{margin-top:auto;padding:25px 0 0;border:0;background:none;color:var(--ink);font:600 11px var(--sans);text-align:left;cursor:pointer;width:fit-content}.service-discover:hover{color:var(--olive)}.service-dialog{width:min(640px,calc(100% - 32px));border:1px solid #d7d8ce;padding:clamp(28px,6vw,52px);background:#f7f7f2;color:#11120f;box-shadow:0 24px 90px #0003}.service-dialog::backdrop{background:#10110fcc;backdrop-filter:blur(3px)}.service-dialog h2{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.04em;font-weight:500;margin:15px 0 18px}.service-dialog p{font-size:15px;line-height:1.85;color:#696b63;margin:0 0 30px}.service-dialog-top{display:flex;justify-content:space-between;align-items:center}.service-dialog-close{width:38px;height:38px;border:1px solid #c9cabe;background:transparent;border-radius:50%;font-size:22px;cursor:pointer}.service-dialog .btn{background:#11120f;color:#f5f4ee}
   
+    .tally-embed-wrap{width:100%;min-width:0;border:1px solid #41433a;border-radius:12px;overflow:hidden;background:#f7f7f2}
+    .tally-embed-wrap iframe{display:block;width:100%;min-height:1500px;border:0;background:transparent}
+    @media(max-width:760px){.tally-embed-wrap iframe{min-height:1750px}}
     /* Contact form refresh */
     .contact-modern{padding:clamp(76px,10vw,132px) 0 120px;background:#090a08;border-top:1px solid #303228}
     .contact-modern>.wrap{max-width:980px}
@@ -143,44 +146,20 @@
           <p class="contact-supporting">Tek bir hizmetle başlayabilir veya farklı disiplinleri aynı projede buluşturabilirsiniz.</p>
           <div class="brand-note"><span class="brand-dot"></span><span><strong>TUĞÇE CREATIVE</strong><small>Fikirden dijital deneyime.</small></span></div>
         </div>
-        <form id="project-form" class="project-form">
-          <div class="form-section-heading"><span>01</span><div><h3>İletişim bilgileriniz</h3><p>Size ve markanıza nasıl ulaşabileceğimizi öğrenelim.</p></div></div>
-          <div class="form-grid">
-            <div class="field"><label for="brand-name">Marka / firma adı <i>*</i></label><input id="brand-name" name="brand" autocomplete="organization" placeholder="Markanızın veya firmanızın adı" required></div>
-            <div class="field"><label for="person">Yetkili kişi <i>*</i></label><input id="person" name="person" autocomplete="name" placeholder="Adınız ve soyadınız" required></div>
-            <div class="field"><label for="email">E-posta adresi <i>*</i></label><input id="email" name="email" type="email" autocomplete="email" placeholder="ornek@markaniz.com" required></div>
-            <div class="field"><label for="phone">Telefon <span>(isteğe bağlı)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+90 5__ ___ __ __"></div>
-          </div>
-
-          <div class="form-section-heading"><span>02</span><div><h3>Projenizin kapsamı</h3><p>Bir veya birden fazla hizmet seçebilirsiniz.</p></div></div>
-          <fieldset class="service-options">
-            <legend>İlgilendiğiniz hizmetler <i>*</i></legend>
-            <label class="service-option"><input type="checkbox" name="services" value="Yapay Zekâ ile Ürün Görseli"><span class="custom-check"></span><span>Yapay zekâ ile ürün görseli</span></label>
-            <label class="service-option"><input type="checkbox" name="services" value="Yapay Zekâ ile Ürün Videoları"><span class="custom-check"></span><span>Yapay zekâ ile ürün videoları</span></label>
-            <label class="service-option"><input type="checkbox" name="services" value="Sosyal Medya İçerikleri"><span class="custom-check"></span><span>Sosyal medya içerikleri</span></label>
-            <label class="service-option"><input type="checkbox" name="services" value="Web Tasarımı"><span class="custom-check"></span><span>Web tasarımı</span></label>
-          </fieldset>
-
-          <div class="form-grid">
-            <div class="field full"><label for="description">Proje açıklaması <i>*</i></label><textarea id="description" name="description" minlength="20" required placeholder="Hedefinizi, ihtiyacınız olan teslimleri ve aklınızdaki yaratıcı fikri anlatın. (En az 20 karakter)"></textarea><small class="field-hint">Ne kadar ayrıntı paylaşırsanız, size o kadar doğru bir yol haritası sunabiliriz.</small></div>
-            <div class="field full"><label for="website">Mevcut web sitesi veya sosyal medya adresi <span>(isteğe bağlı)</span></label><input id="website" name="website" type="text" placeholder="https://... veya @kullaniciadi"></div>
-            <div class="field"><label for="timeline">Zamanlama beklentisi</label><select id="timeline" name="timeline"><option value="">Bir zaman aralığı seçin</option><option>En kısa sürede</option><option>1–2 hafta içinde</option><option>2–4 hafta içinde</option><option>1–2 ay içinde</option><option>Esnek / birlikte belirleyelim</option></select></div>
-            <div class="field"><label for="budget">Bütçe bilgisi <span>(isteğe bağlı)</span></label><input id="budget" name="budget" type="text" placeholder="Örn. 10.000–15.000 TL"></div>
-            <div class="field full"><label for="industry">Sektörünüz</label><select id="industry" name="industry"><option value="">Sektör seçin</option><option>Moda / Tekstil</option><option>Takı / Aksesuar</option><option>Mobilya / Dekorasyon</option><option>Güzellik / Kozmetik</option><option>Yeme – İçme</option><option>Teknoloji / Dijital</option><option>Perakende / E-ticaret</option><option>Diğer</option></select></div>
-          </div>
-
-          <div class="upload-section">
-            <div class="upload-heading"><label for="reference-files">Referans dosyaları <span>(isteğe bağlı)</span></label><span id="file-count">0 / 3</span></div>
-            <p>Ürün fotoğrafı, marka kılavuzu veya proje briefi ekleyebilirsiniz. En fazla 3 dosya; JPG, PNG, WEBP veya PDF (dosya başına en fazla 50 MB).</p>
-            <label class="upload-drop" for="reference-files"><span class="upload-plus">＋</span><span><strong>Dosyalarınızı seçin</strong><small>veya buraya eklemek için dokunun</small></span><span class="upload-types">JPG · PNG · WEBP · PDF</span></label>
-            <input id="reference-files" name="references" type="file" accept=".jpg,.jpeg,.png,.webp,.pdf,image/jpeg,image/png,image/webp,application/pdf" multiple hidden>
-            <ul id="file-list" class="file-list" aria-live="polite"></ul>
-          </div>
-
-          <label class="consent-row"><input type="checkbox" id="consent" name="consent" required><span>Paylaştığım bilgilerin proje talebimin değerlendirilmesi ve benimle iletişime geçilmesi amacıyla kullanılmasını kabul ediyorum. <a href="mailto:tgcgoksu33@gmail.com?subject=Veri%20kullanimi%20hakkinda">Veri kullanımı hakkında</a>.</span></label>
-          <div class="form-submit form-submit-modern"><button class="btn" type="submit">Proje talebini gönder <span>↗</span></button><small>Gönderim, e-posta uygulamanızda doldurulmuş bir taslak açar. Seçtiğiniz dosyaları e-postaya ayrıca eklemeniz gerekir.</small></div>
-          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-        </form>
+        <div class="tally-embed-wrap" aria-label="Tuğçe Creative proje ve iş birliği başvuru formu">
+          <iframe
+            data-tally-src="https://tally.so/embed/rDBI4N?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="1500"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Tuğçe Creative | Proje ve İş Birliği Başvurusu"></iframe>
+        </div>
+        <script>
+          (function(){var d=document,w="https://tally.so/widgets/embed.js",v=function(){if(typeof Tally!=="undefined"){Tally.loadEmbeds();}else{d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc;});}};if(typeof Tally!=="undefined"){v();}else if(!d.querySelector('script[src="'+w+'"]')){var s=d.createElement("script");s.src=w;s.onload=v;s.onerror=v;s.async=true;d.body.appendChild(s);}})();
+        </script>
       </div>
     </section>
     <section class="faq faq-modern" id="sss"><div class="wrap faq-layout"><div><span class="eyebrow">Merak ettikleriniz</span><h2>Aklınızda<br><em>bir soru mu var?</em></h2><p class="faq-lead">Proje süreci, üretim biçimi ve teslimlerle ilgili en çok merak edilenleri yanıtladık.</p><a class="faq-contact-link" href="#iletisim">Birlikte netleştirelim <span>↗</span></a></div><div>
@@ -200,65 +179,7 @@
     document.querySelectorAll('.comparison-range').forEach(range=>{const update=()=>{const stage=range.previousElementSibling;const value=Number(range.value);stage.querySelector('.after-reveal').style.clipPath='inset(0 0 0 '+value+'%)';stage.querySelector('.compare-line').style.left=value+'%';stage.querySelector('.compare-knob').style.left=value+'%';};range.addEventListener('input',update);update();});
     document.querySelectorAll('.comparison-card .compare').forEach(stage=>{const knob=stage.querySelector('.compare-knob');const range=stage.nextElementSibling;const move=e=>{const rect=stage.getBoundingClientRect();range.value=Math.max(0,Math.min(100,(e.clientX-rect.left)/rect.width*100));range.dispatchEvent(new Event('input',{bubbles:true}));};knob.addEventListener('pointerdown',e=>{e.preventDefault();knob.setPointerCapture(e.pointerId);move(e);});knob.addEventListener('pointermove',e=>{if(knob.hasPointerCapture(e.pointerId))move(e);});});
   
-    const projectForm=document.querySelector('#project-form');
-    if(projectForm){
-      const fileInput=document.querySelector('#reference-files');
-      const fileList=document.querySelector('#file-list');
-      const fileCount=document.querySelector('#file-count');
-      const formStatus=document.querySelector('#form-status');
-      let chosenFiles=[];
-      const renderFiles=()=>{
-        fileCount.textContent=chosenFiles.length+' / 3';
-        fileList.innerHTML='';
-        chosenFiles.forEach((file,index)=>{
-          const item=document.createElement('li');
-          const name=document.createElement('span');
-          name.textContent=file.name+' · '+(file.size/1024/1024).toFixed(1)+' MB';
-          const remove=document.createElement('button');
-          remove.type='button';remove.textContent='Kaldır';remove.setAttribute('aria-label',file.name+' dosyasını kaldır');
-          remove.addEventListener('click',()=>{chosenFiles.splice(index,1);renderFiles();});
-          item.append(name,remove);fileList.append(item);
-        });
-      };
-      fileInput.addEventListener('change',()=>{
-        const incoming=Array.from(fileInput.files||[]);
-        const allowed=['image/jpeg','image/png','image/webp','application/pdf'];
-        for(const file of incoming){
-          if(chosenFiles.length>=3){formStatus.textContent='En fazla 3 dosya ekleyebilirsiniz.';break;}
-          if(!allowed.includes(file.type)){formStatus.textContent='Yalnızca JPG, PNG, WEBP veya PDF dosyası ekleyebilirsiniz.';continue;}
-          if(file.size>50*1024*1024){formStatus.textContent=file.name+' dosyası 50 MB sınırını aşıyor.';continue;}
-          if(!chosenFiles.some(existing=>existing.name===file.name&&existing.size===file.size))chosenFiles.push(file);
-        }
-        fileInput.value='';renderFiles();
-      });
-      projectForm.addEventListener('submit',event=>{
-        event.preventDefault();
-        formStatus.textContent='';
-        const selected=Array.from(projectForm.querySelectorAll('input[name="services"]:checked')).map(input=>input.value);
-        if(!selected.length){formStatus.textContent='Lütfen ilgilendiğiniz en az bir hizmeti seçin.';document.querySelector('.service-options').scrollIntoView({behavior:'smooth',block:'center'});return;}
-        if(!projectForm.reportValidity())return;
-        const data=new FormData(projectForm);
-        const lines=[
-          'Marka / firma: '+data.get('brand'),
-          'Yetkili kişi: '+data.get('person'),
-          'E-posta: '+data.get('email'),
-          'Telefon: '+(data.get('phone')||'Belirtilmedi'),
-          'Hizmetler: '+selected.join(', '),
-          'Proje açıklaması: '+data.get('description'),
-          'Web sitesi / sosyal medya: '+(data.get('website')||'Belirtilmedi'),
-          'Zamanlama: '+(data.get('timeline')||'Belirtilmedi'),
-          'Bütçe: '+(data.get('budget')||'Belirtilmedi'),
-          'Sektör: '+(data.get('industry')||'Belirtilmedi'),
-          'Referans dosyaları: '+(chosenFiles.map(file=>file.name).join(', ')||'Eklenmedi'),
-          '',
-          'Not: Seçilen referans dosyalarını bu e-postaya ayrıca ekleyeceğim.'
-        ];
-        const subject=encodeURIComponent('Tuğçe Creative | Yeni proje talebi - '+data.get('brand'));
-        const body=encodeURIComponent(lines.join('\n'));
-        formStatus.textContent='E-posta taslağınız hazırlanıyor. Lütfen açılan e-postaya seçtiğiniz dosyaları ekleyip gönderin.';
-        window.location.href='mailto:tgcgoksu33@gmail.com?subject='+subject+'&body='+body;
-      });
-    }
+
 
   </script>
 </body>
