@@ -45,6 +45,11 @@
     .tally-embed-wrap{width:100%;min-width:0;border:1px solid #41433a;border-radius:12px;overflow:hidden;background:#f7f7f2}
     .tally-embed-wrap iframe{display:block;width:100%;min-height:1500px;border:0;background:transparent}
     @media(max-width:760px){.tally-embed-wrap iframe{min-height:1750px}}
+    .tally-embed-wrap{width:100%;max-width:760px;margin:0 auto;padding:34px;border:1px solid #41433a;border-radius:12px;background:#11130f;text-align:center}
+    .tally-fallback-text{color:#c4c5bc;margin:0 0 22px;line-height:1.7}
+    .tally-open-link{display:inline-flex;align-items:center;gap:12px;padding:16px 24px;border-radius:999px;background:#c5c7aa;color:#11130f;font-weight:700;text-decoration:none;transition:transform .2s,background .2s}
+    .tally-open-link:hover{transform:translateY(-2px);background:#d7d9bd}
+    @media(max-width:760px){.tally-embed-wrap{padding:24px 18px}}
     /* Contact form refresh */
     .contact-modern{padding:clamp(76px,10vw,132px) 0 120px;background:#090a08;border-top:1px solid #303228}
     .contact-modern>.wrap{max-width:980px}
@@ -147,15 +152,8 @@
           <div class="brand-note"><span class="brand-dot"></span><span><strong>TUĞÇE CREATIVE</strong><small>Fikirden dijital deneyime.</small></span></div>
         </div>
         <div class="tally-embed-wrap" aria-label="Tuğçe Creative proje ve iş birliği başvuru formu">
-          <iframe
-            src="https://tally.so/embed/rDBl4N?alignLeft=1&hideTitle=1&transparentBackground=1"
-            loading="lazy"
-            width="100%"
-            height="2200"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="Tuğçe Creative | Proje ve İş Birliği Başvurusu"></iframe>
+          <p class="tally-fallback-text">Başvuru formunu güvenli şekilde doldurmak için aşağıdaki bağlantıyı kullanabilirsiniz.</p>
+          <a class="tally-open-link" href="https://tally.so/r/rDBl4N" target="_blank" rel="noopener noreferrer">Proje ve İş Birliği Başvuru Formunu Aç <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
