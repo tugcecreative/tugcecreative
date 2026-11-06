@@ -145,6 +145,16 @@
       .hero p{font-size:14px}
       .hero-foot>div{max-width:100%}
     }
+
+    /* Show the entire hero photograph on narrow screens without cropping */
+    @media(max-width:760px){
+      .hero{padding-top:0!important;background:#10110f}
+      .hero-photo{position:relative!important;inset:auto!important;display:block;width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center center!important;z-index:0!important}
+      .hero:before{display:none!important}
+      .hero>.wrap:not(.hero-foot){padding-top:26px}
+      .hero-copy{padding-top:0!important}
+      .hero-foot{margin-top:30px!important}
+    }
 </style>
 </head>
 <body>
