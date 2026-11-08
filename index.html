@@ -329,13 +329,149 @@
   }
 }
 
+  
+/* LUXURY EDITORIAL HOMEPAGE — cohesive visual direction */
+:root{--ink:#171512;--paper:#f3eee7;--line:#d8cfc3;--olive:#81715e;--muted:#777067;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+body{background:var(--paper);color:var(--ink)}
+.wrap{width:min(1440px,calc(100% - 9vw))}
+.topbar{position:absolute;color:#171512;padding:25px 0;background:linear-gradient(180deg,rgba(243,238,231,.82),transparent)}
+.brand{font-size:22px;letter-spacing:.11em}.brand small{font-size:8px;letter-spacing:.32em}
+.navlinks{gap:clamp(15px,2.4vw,34px);font-size:10px;letter-spacing:.04em;text-transform:none}
+.navlinks a{opacity:1}.nav-cta{border:1px solid #171512;padding:12px 18px}
+.menu{color:#171512}
+main{display:flex;flex-direction:column}
+.hero{order:1;height:min(780px,92svh);min-height:650px;max-height:860px;color:#171512;background:#e9dfd3;align-items:center}
+.hero-photo{object-position:70% center;filter:saturate(.78)}
+.hero:before{background:linear-gradient(90deg,#f0e8df 0%,rgba(240,232,223,.96) 29%,rgba(240,232,223,.66) 49%,rgba(240,232,223,.02) 76%),linear-gradient(0deg,rgba(30,24,19,.12),transparent 25%)}
+.hero-copy{max-width:620px;padding-top:40px}
+.hero .eyebrow{color:#66594d;font-size:9px;letter-spacing:.2em}
+.hero .eyebrow:before{border-color:#827365}
+.hero h1{font-family:var(--serif);font-size:clamp(58px,7vw,100px);line-height:.98;letter-spacing:-.055em;font-weight:500;max-width:680px}
+.hero h1 em{font-style:italic}
+.hero p{color:#4d463f;max-width:390px;font-size:14px;line-height:1.85}
+.hero .btn{background:#171512;color:#f6f0e8;border-color:#171512}
+.hero .btn:hover{background:transparent;color:#171512}
+.hero .text-link{border-color:#887d71}
+.hero-foot{color:#4b443d;border-color:#8f8377;font-size:9px;letter-spacing:.18em}
+.hero-foot a{font-size:9px}
+.intro{order:2;padding:0;background:#f7f3ed}
+.editorial-strip{min-height:62px;display:flex;align-items:center;justify-content:center;gap:clamp(12px,3vw,42px);flex-wrap:wrap;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.24em}
+.editorial-strip i{font-style:normal;color:#9a8874;font-size:12px}
+.portfolio{order:3;background:#f3eee7;color:#171512;padding:100px 0 110px}
+.portfolio .section-head{grid-template-columns:.9fr .55fr;gap:7vw;margin-bottom:44px}
+.portfolio .section-head p{color:#6f675f}
+.portfolio .section-head h2{font-family:var(--serif);font-size:clamp(48px,6vw,78px);line-height:1.02;letter-spacing:-.055em}
+.portfolio .section-head h2 em{font-style:italic}
+.portfolio .text-link{border-color:#9a8b7b}
+.portfolio-catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.catalog-card{position:relative;display:flex;flex-direction:column;align-items:stretch;text-align:left;min-width:0;padding:0 0 16px;border:0;background:transparent;color:#171512;cursor:pointer}
+.catalog-card img{width:100%;height:clamp(230px,32vw,440px);object-fit:cover;display:block;filter:saturate(.8);transition:filter .5s,transform .7s}
+.catalog-card:hover img{filter:saturate(1);transform:scale(.99)}
+.catalog-index{font-size:8px;letter-spacing:.18em;color:#8a7d70;margin:17px 0 8px}
+.catalog-card strong{font-family:var(--serif);font-weight:500;font-size:clamp(20px,2vw,27px)}
+.catalog-arrow{position:absolute;right:4px;bottom:17px;font-size:20px}
+.portfolio-results-head{border-bottom:1px solid var(--line);padding:12px 0 18px;margin-bottom:24px}
+.portfolio-back,.portfolio-more{color:#171512;border-color:#a99b8c}
+.project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 18px}
+.project img{width:100%;height:clamp(250px,38vw,520px);object-fit:cover;filter:saturate(.83)}
+.project-caption{padding:13px 0 0;color:#171512}
+.project-caption small{color:#877a6d}.project-caption strong{font-family:var(--serif);font-size:21px}
+.project-caption p{font-size:12px;line-height:1.65;color:#70675e;margin:7px 0 0}
+.videos{order:4;background:#211b18;color:#f5eee6;padding:88px 0 96px}
+.videos .section-head{grid-template-columns:1fr .55fr;gap:7vw}
+.videos .section-head h2{font-family:var(--serif);font-size:clamp(45px,5.8vw,74px);line-height:1.02}
+.videos .section-head p{color:#c7bcb1}
+.videos .video-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;justify-content:stretch}
+.videos .video-card video{width:100%;max-height:540px;object-fit:cover;background:#100e0d}
+.videos .video-card h3{font-family:var(--serif);font-size:21px;font-weight:500}
+.videos .video-card p{color:#c4b8ad;line-height:1.7}
+.services{order:5;padding:85px 0 92px;background:#eee7de}
+.service-grid{grid-template-columns:repeat(5,minmax(0,1fr));border:0;gap:0}
+.service{min-height:240px;padding:22px 20px;border:0;border-left:1px solid #d3c8bb;background:transparent}
+.service:first-child{border-left:0}
+.service:hover{background:#e6ddd2}
+.service-top{color:#897864}
+.service-label{font-size:8px;letter-spacing:.12em;color:#8b7d70}
+.service h3{font-family:var(--serif);font-size:clamp(19px,1.7vw,25px);line-height:1.14}
+.service p{font-size:11px;line-height:1.65;color:#70675e}
+.service-discover{color:#171512;font-size:10px}
+.why{order:6;background:#f7f3ed;padding:90px 0}
+.why-intro{text-align:left;max-width:800px;margin:0 auto 48px}
+.why-intro h2{font-family:var(--serif);font-size:clamp(42px,5.5vw,68px);font-weight:500}
+.why-intro p{max-width:540px}
+.benefits{grid-template-columns:repeat(3,1fr);gap:34px}
+.benefit{border-top:1px solid var(--line);padding-top:18px}
+.benefit h3{font-size:10px;letter-spacing:.12em}
+.contact{order:7;background:#211b18;color:#f5eee6;padding:90px 0 100px}
+.contact h2{font-family:var(--serif);font-weight:500}
+.contact p{color:#c7bcb1}
+.contact .brand-note{color:#eee4da}
+.tally-embed-wrap{background:#f7f3ed;border-color:#5b5047}
+.faq,.process-section,.before,.faces{display:none!important}
+footer{background:#f7f3ed;color:#171512}
+.whatsapp{background:#171512}
+@media(max-width:900px){.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service:nth-child(odd){border-left:0}.service{border-bottom:1px solid #d3c8bb}.videos .video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{min-height:650px}.hero-copy{max-width:54%}}
+@media(max-width:760px){
+ .wrap{width:calc(100% - 36px)}
+ .topbar{padding:18px 0;background:rgba(243,238,231,.92);backdrop-filter:blur(10px)}
+ .navlinks{background:#f3eee7;color:#171512;top:62px;left:18px;right:18px;padding:20px;border:1px solid #d8cfc3}
+ .nav-cta{border-color:#171512}
+ .hero{height:auto;min-height:0;max-height:none;display:flex;flex-direction:column;align-items:stretch;padding:0 0 24px}
+ .hero-photo{position:relative;inset:auto;z-index:0;display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:70% center}
+ .hero:before{display:none}
+ .hero-inner{order:2}
+ .hero-copy{max-width:none;padding:32px 0 0}
+ .hero .eyebrow{margin-bottom:18px}
+ .hero h1{font-size:clamp(50px,12vw,76px);max-width:560px}
+ .hero p{font-size:13px;max-width:440px}
+ .hero-foot{position:static;order:3;margin-top:28px;padding-top:15px;gap:12px;flex-wrap:wrap}
+ .editorial-strip{padding:16px 0;gap:10px 16px;font-size:8px;letter-spacing:.16em}
+ .portfolio,.videos,.services,.why,.contact{padding:68px 0}
+ .portfolio .section-head,.videos .section-head{grid-template-columns:1fr;gap:16px}
+ .portfolio-catalog{grid-template-columns:1fr 1fr;gap:22px 12px}
+ .catalog-card img{height:clamp(190px,58vw,320px)}
+ .catalog-card strong{font-size:21px}
+ .project-grid{gap:24px 12px}
+ .project img{height:clamp(190px,58vw,330px)}
+ .project-caption strong{font-size:18px}
+ .videos .video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+ .videos .video-card video{max-height:none;aspect-ratio:3/4;object-fit:cover}
+ .service-grid{grid-template-columns:1fr 1fr}
+ .service{padding:20px 14px;min-height:235px}
+ .service h3{font-size:21px}
+ .service p{font-size:11px}
+ .benefits{grid-template-columns:1fr 1fr;gap:26px 18px}
+ .why-intro{margin-bottom:36px}
+ .contact-layout{grid-template-columns:1fr;gap:32px}
+ .tally-embed-wrap{padding:16px}
+}
+@media(max-width:480px){
+ .wrap{width:calc(100% - 30px)}
+ .hero-photo{aspect-ratio:5/4}
+ .hero .actions{gap:15px}
+ .hero .btn{min-width:160px}
+ .hero-foot{font-size:7px;letter-spacing:.1em}
+ .portfolio-catalog{grid-template-columns:1fr 1fr}
+ .catalog-card img{height:210px}
+ .project-grid{grid-template-columns:1fr}
+ .project img{height:auto;max-height:none;object-fit:contain}
+ .videos .video-grid{grid-template-columns:1fr;max-width:340px;margin:auto}
+ .videos .video-card video{aspect-ratio:9/16;object-fit:contain}
+ .service-grid{grid-template-columns:1fr}
+ .service{border-left:0;border-bottom:1px solid #d3c8bb;min-height:0;padding:22px 8px}
+ .service p{font-size:12px}
+ .benefits{grid-template-columns:1fr}
+ .contact form{grid-template-columns:1fr}
+ .field.full,.form-submit{grid-column:1}
+}
+
   </style>
 </head>
 <body>
   <header class="topbar"><div class="wrap nav"><a class="brand" href="#anasayfa">TUĞÇE <span>CREATIVE</span><small>AI GÖRSEL & VİDEO STÜDYOSU</small></a><button class="menu" aria-label="Menüyü aç" aria-expanded="false">☰</button><nav class="navlinks"><a href="hizmetler.html">Hizmetler</a><a href="#portfoy">Portföy</a><a href="#once-sonra">Önce / Sonra</a><a href="#videolar">Videolar</a><a href="hakkimda.html">Hakkımda</a><a href="#sss">SSS</a><a class="nav-cta" href="#iletisim">Projeni konuşalım ↗</a></nav></div></header>
   <main>
-    <section class="hero hero-immersive" id="anasayfa"><img class="hero-photo" src="media/fashion-editorial.jpg" alt="Tuğçe Creative için sinematik moda editoryali"><div class="hero-shade"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="eyebrow">Bağımsız yaratıcı stüdyo · Yapay zekâ destekli</div><h1>Fikirden<br><em>görsel deneyime.</em></h1><p>Markaların fikirlerini; güçlü görsellere, hareketli hikâyelere ve dijital deneyimlere dönüştürüyorum.</p><div class="actions"><a class="btn" href="#portfoy">Çalışmaları keşfet <span>↗</span></a><a class="text-link" href="#yaklasim">Yaratıcı yaklaşım ↓</a></div></div></div><div class="wrap hero-foot"><span>STRATEJİ / GÖRSEL / HAREKET / DİJİTAL</span><a href="#yaklasim">KEŞFETMEK İÇİN KAYDIR ↓</a></div></section>
-    <section class="intro intro-manifesto" id="yaklasim"><div class="wrap manifesto-grid"><span class="eyebrow">Yaratıcı bakış açısı</span><div><h2>Her marka bir hikâye taşır.<br><em>Önemli olan, onu doğru anlatmak.</em></h2><p>Her iyi iş, ürünü ve markayı gerçekten anlamakla başlar. Ben de her projeye hazır kalıplarla değil; doğru fikir, özgün görsel dil ve detaylara odaklanan bir üretim süreciyle yaklaşıyorum.</p></div><span class="manifesto-index">01 — 04</span></div></section>
+    <section class="hero hero-immersive" id="anasayfa"><img class="hero-photo" src="media/fashion-editorial.jpg" alt="Tuğçe Creative için sinematik moda editoryali"><div class="hero-shade"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="eyebrow">Bağımsız yaratıcı stüdyo · Yapay zekâ destekli</div><h1>Her marka bir<br><em>hikâye taşır.</em></h1><p>Önemli olan, onu doğru anlatmak. AI destekli kreatif üretimle markalara özel görsel ve video içerikler tasarlıyorum.</p><div class="actions"><a class="btn" href="#portfoy">Çalışmaları keşfet <span>↗</span></a><a class="text-link" href="#yaklasim">Yaratıcı yaklaşım ↓</a></div></div></div><div class="wrap hero-foot"><span>STRATEJİ / GÖRSEL / HAREKET / DİJİTAL</span><a href="#yaklasim">KEŞFETMEK İÇİN KAYDIR ↓</a></div></section>
+    <section class="intro intro-manifesto" id="yaklasim"><div class="wrap editorial-strip"><span>KREATİF KONSEPT</span><i>✳</i><span>AI PRODÜKSİYON</span><i>✳</i><span>ÜRÜN ODAKLI İÇERİK</span><i>✳</i><span>DİJİTAL GÖRSEL DENEYİM</span></div></section>
     <section class="services" id="hizmetler"><div class="wrap service-grid">
       <article class="service"><div class="service-top"><span class="service-num">01</span><span class="service-icon">✳</span></div><div class="service-label">Ürün odaklı yaratıcı üretim</div><h3>AI Görsel ve Kreatif Üretim</h3><p>Ürünlerinizi özgün konseptler, yaratıcı sahneler ve profesyonel kompozisyonlarla öne çıkaran yapay zekâ destekli görseller.</p><button type="button" class="service-discover" data-title="AI Görsel ve Kreatif Üretim" data-description="Ürün fotoğraflarınızı referans alarak markanızın tarzına uygun yaratıcı sahneler ve kampanya görselleri hazırlıyorum. Ürünün formunu, rengini ve ayırt edici detaylarını korumaya odaklanıyorum.">Hizmeti keşfet　↗</button></article>
       <article class="service"><div class="service-top"><span class="service-num">02</span><span class="service-icon">◉</span></div><div class="service-label">Hareketli marka anlatımı</div><h3>AI Video ve Kreatif Prodüksiyon</h3><p>Ürün ve marka hikâyenizi kısa tanıtım filmleri, reklam videoları ve dikkat çekici hareketli içeriklerle anlatın.</p><button type="button" class="service-discover" data-title="AI Video ve Kreatif Prodüksiyon" data-description="Markanız ve ürünleriniz için yapay zekâ destekli tanıtım, reklam ve sosyal medya videoları hazırlıyorum. Sahne akışını, kamera hareketlerini ve görsel dili projenizin amacına göre kurguluyorum.">Hizmeti keşfet　↗</button></article>
