@@ -782,6 +782,39 @@ footer{background:#f7f3ed;color:#171512}
   html body main #anasayfa .hero-foot {display:none!important}
 }
 
+  
+/* FINAL MOBILE FIX: explicit frame height from the original image ratio */
+@media screen and (max-width: 900px) {
+  html body main section#anasayfa.hero.hero-immersive > .hero-image-frame {
+    display:block!important;
+    position:relative!important;
+    width:100vw!important;
+    height:55.8125vw!important;
+    min-height:0!important;
+    max-height:none!important;
+    aspect-ratio:auto!important;
+    padding:0!important;
+    margin:0!important;
+    overflow:hidden!important;
+    flex:0 0 auto!important;
+    background:#e9e5de!important;
+  }
+  html body main section#anasayfa.hero.hero-immersive > .hero-image-frame > img.hero-photo {
+    display:block!important;
+    position:absolute!important;
+    top:0!important; left:0!important; right:0!important; bottom:0!important;
+    width:100%!important; height:100%!important;
+    min-width:100%!important; min-height:100%!important;
+    max-width:none!important; max-height:none!important;
+    object-fit:contain!important;
+    object-position:center center!important;
+    transform:none!important;
+    filter:none!important;
+    opacity:1!important;
+    z-index:1!important;
+  }
+}
+
   </style>
 </head>
 <body>
