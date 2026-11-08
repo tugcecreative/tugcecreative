@@ -1041,8 +1041,8 @@ main > section#sss.faq{order:9!important;}
       const projects=Array.from(projectGrid.querySelectorAll('.project[data-category]'));
       projects.forEach(card=>{card.hidden=card.dataset.category!==category;});
       const visible=projects.filter(card=>!card.hidden);
-      visible.forEach((card,index)=>{card.hidden=index>=4;});
-      moreButton.hidden=visible.length<=4;
+      visible.forEach(card=>{card.hidden=false;});
+      moreButton.hidden=true;
       results.scrollIntoView({behavior:'smooth',block:'start'});
     }
     document.querySelectorAll('[data-open-category]').forEach(button=>button.addEventListener('click',()=>showCategory(button.dataset.openCategory)));
