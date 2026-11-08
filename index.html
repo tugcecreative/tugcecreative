@@ -284,6 +284,51 @@
  .hero-immersive .hero-foot{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;margin:44px 15px 0!important;padding-top:14px!important;transform:none!important}
 }
 
+  
+/* FINAL MOBILE HERO OVERRIDE — neutralize legacy .hero rules */
+@media(max-width:760px){
+  #anasayfa.hero-immersive{
+    display:block!important;position:relative!important;
+    height:auto!important;min-height:0!important;max-height:none!important;
+    padding:0 0 44px!important;margin:0!important;overflow:visible!important;
+    background:#10110f!important;
+  }
+  #anasayfa.hero-immersive>.hero-photo{
+    display:block!important;position:relative!important;
+    inset:auto!important;width:100%!important;height:auto!important;
+    max-height:none!important;aspect-ratio:auto!important;
+    object-fit:contain!important;object-position:center!important;
+    z-index:0!important;filter:brightness(.72) saturate(.82)!important;
+    margin:0!important;
+  }
+  #anasayfa.hero-immersive>.hero-shade{display:none!important}
+  #anasayfa.hero-immersive>.hero-inner{
+    display:block!important;position:relative!important;
+    inset:auto!important;width:auto!important;height:auto!important;
+    min-height:0!important;max-height:none!important;
+    margin:0!important;padding:26px 20px 0!important;
+    transform:none!important;z-index:1!important;
+  }
+  #anasayfa.hero-immersive .hero-copy{
+    display:block!important;width:100%!important;max-width:none!important;
+    margin:0!important;padding:0!important;transform:none!important;
+  }
+  #anasayfa.hero-immersive .hero-copy .eyebrow{margin:0 0 18px!important}
+  #anasayfa.hero-immersive .hero-copy h1{
+    font-size:clamp(42px,10.5vw,58px)!important;
+    line-height:1.02!important;margin:0 0 20px!important;
+  }
+  #anasayfa.hero-immersive .hero-copy p{
+    max-width:100%!important;margin:0 0 24px!important;
+  }
+  #anasayfa.hero-immersive .hero-foot{
+    display:flex!important;position:static!important;
+    inset:auto!important;width:auto!important;max-width:none!important;
+    margin:38px 20px 0!important;padding:14px 0 0!important;
+    transform:none!important;border-top:1px solid #ffffff55!important;
+  }
+}
+
   </style>
 </head>
 <body>
