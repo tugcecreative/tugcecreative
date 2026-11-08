@@ -465,6 +465,13 @@ footer{background:#f7f3ed;color:#171512}
  .field.full,.form-submit{grid-column:1}
 }
 
+  
+/* HERO IMAGE CLARITY — keep the campaign photo bright and unobstructed */
+.hero-immersive .hero-photo{filter:brightness(1) saturate(.94)!important;opacity:1;object-position:70% center}
+.hero-immersive .hero-shade{background:linear-gradient(90deg,rgba(243,238,231,.94) 0%,rgba(243,238,231,.82) 34%,rgba(243,238,231,.42) 52%,rgba(243,238,231,.02) 76%)!important}
+.hero-immersive:before{background:transparent!important}
+@media(max-width:760px){.hero-immersive .hero-photo{filter:brightness(1) saturate(.94)!important;object-position:70% center}.hero-immersive .hero-shade{background:linear-gradient(0deg,rgba(243,238,231,.08),transparent 30%)!important}}
+
   </style>
 </head>
 <body>
