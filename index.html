@@ -898,6 +898,26 @@ footer{background:#f7f3ed;color:#171512}
 /* FAQ POSITION FIX: main is a flex column; keep FAQ after contact (order:8). */
 main > section#sss.faq{order:9!important;}
 
+
+/* PORTFOLIO CATEGORY IMAGE FIX: show each complete original image without cropping */
+.portfolio-results .project{
+  height:auto!important;
+  aspect-ratio:auto!important;
+  overflow:visible!important;
+}
+.portfolio-results .project img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  transform:none!important;
+  clip-path:none!important;
+}
+.portfolio-results .project:hover img{transform:none!important}
+
 </style>
 
 <script>
