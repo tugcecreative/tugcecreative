@@ -861,6 +861,39 @@ footer{background:#f7f3ed;color:#171512}
   .tally-embed-wrap iframe{border-radius:14px!important}
 }
 
+
+/* FAQ VISIBILITY FIX — keep the full FAQ section visible regardless of scroll animations */
+#sss.faq{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  position:relative!important;
+  z-index:1!important;
+  min-height:320px;
+  padding:100px 0!important;
+  background:#f7f7f2!important;
+  color:#11120f!important;
+}
+#sss.faq .faq-layout{display:grid!important;visibility:visible!important;opacity:1!important}
+#sss.faq .faq-layout>div{display:block!important;visibility:visible!important;opacity:1!important}
+#sss.faq .faq-item,
+#sss.faq .faq-item.reveal-item{
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  transform:none!important;
+  position:relative!important;
+  height:auto!important;
+  max-height:none!important;
+  overflow:visible!important;
+}
+#sss.faq .faq-item summary{display:flex!important;visibility:visible!important;color:#11120f!important;cursor:pointer}
+#sss.faq .faq-item p{color:#62645c!important}
+@media(max-width:760px){
+  #sss.faq{padding:72px 0!important}
+  #sss.faq .faq-layout{grid-template-columns:1fr!important;gap:28px!important}
+}
+
   </style>
 </head>
 <body>
