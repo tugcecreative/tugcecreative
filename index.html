@@ -1035,5 +1035,16 @@ footer{background:#f7f3ed;color:#171512}
 })();
 </script>
 
+
+<script>
+// Do not open the homepage scrolled to the FAQ when arriving with a stale #sss URL.
+document.addEventListener('DOMContentLoaded',function(){
+  if(window.location.hash==='#sss'){
+    history.replaceState(null,'',window.location.pathname+window.location.search);
+    window.scrollTo(0,0);
+  }
+});
+</script>
+
 </body>
 </html>
