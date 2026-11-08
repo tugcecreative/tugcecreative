@@ -252,6 +252,23 @@
  .hero-immersive .hero-foot{letter-spacing:.035em!important}
 }
 
+  
+/* SHOW THE FULL HERO PHOTO ON MOBILE */
+@media(max-width:760px){
+ .hero-immersive .hero-photo{
+   top:0!important;right:0!important;bottom:auto!important;left:0!important;
+   width:100%!important;height:48svh!important;max-height:480px!important;
+   object-fit:contain!important;object-position:center top!important;
+   background:#10110f!important;filter:brightness(.72) saturate(.82)!important;
+ }
+ .hero-immersive .hero-shade{
+   background:linear-gradient(180deg,rgba(10,11,10,.04) 0%,rgba(10,11,10,.10) 34%,rgba(10,11,10,.72) 58%,#10110f 100%)!important;
+ }
+}
+@media(max-width:430px){
+ .hero-immersive .hero-photo{height:45svh!important}
+}
+
   </style>
 </head>
 <body>
