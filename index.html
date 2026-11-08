@@ -696,12 +696,55 @@ footer{background:#f7f3ed;color:#171512}
   }
 }
 
+  
+/* MOBILE HERO: dedicated image frame; retain the entire source image */
+@media screen and (max-width: 900px) {
+  html body main #anasayfa.hero.hero-immersive {
+    display:flex!important; flex-direction:column!important; align-items:stretch!important;
+    justify-content:flex-start!important; width:100%!important; height:auto!important;
+    min-height:0!important; max-height:none!important; padding:0 0 38px!important;
+    margin:0!important; overflow:visible!important; background:#10110f!important;
+  }
+  html body main #anasayfa .hero-image-frame {
+    display:block!important; position:relative!important; width:100%!important;
+    height:auto!important; min-height:0!important; max-height:none!important;
+    overflow:visible!important; aspect-ratio:auto!important; line-height:0!important;
+    background:#e9e5de!important; flex:none!important;
+  }
+  html body main #anasayfa .hero-image-frame img.hero-photo {
+    all:initial!important; display:block!important; box-sizing:border-box!important;
+    width:100%!important; height:auto!important; min-width:0!important;
+    min-height:0!important; max-width:100%!important; max-height:none!important;
+    object-fit:contain!important; object-position:center!important;
+    position:static!important; transform:none!important; filter:none!important;
+    opacity:1!important; margin:0!important;
+  }
+  html body main #anasayfa .hero-shade {display:none!important}
+  html body main #anasayfa .hero-inner {
+    display:block!important; position:relative!important; inset:auto!important;
+    order:1!important; width:100%!important; max-width:none!important;
+    height:auto!important; min-height:0!important; margin:0!important;
+    padding:30px 20px 0!important; transform:none!important;
+  }
+  html body main #anasayfa .hero-copy {
+    display:block!important; width:100%!important; max-width:none!important;
+    margin:0!important; padding:0!important;
+  }
+  html body main #anasayfa .hero-copy .actions {display:flex!important; flex-wrap:nowrap!important; gap:0!important}
+  html body main #anasayfa .hero-copy .text-link {display:none!important}
+  html body main #anasayfa .hero-foot {display:none!important}
+}
+@media screen and (min-width: 901px) {
+  #anasayfa .hero-image-frame {position:absolute;inset:0;z-index:-2;overflow:hidden}
+  #anasayfa .hero-image-frame img.hero-photo {width:100%;height:100%;object-fit:cover;object-position:center center}
+}
+
   </style>
 </head>
 <body>
   <header class="topbar"><div class="wrap nav"><a class="brand" href="#anasayfa">TUĞÇE <span>CREATIVE</span><small>AI GÖRSEL & VİDEO STÜDYOSU</small></a><button class="menu" aria-label="Menüyü aç" aria-expanded="false">☰</button><nav class="navlinks"><a href="hizmetler.html">Hizmetler</a><a href="#portfoy">Portföy</a><a href="#once-sonra">Önce / Sonra</a><a href="#videolar">Videolar</a><a href="hakkimda.html">Hakkımda</a><a href="#sss">SSS</a><a class="nav-cta" href="#iletisim">Projeni konuşalım ↗</a></nav></div></header>
   <main>
-    <section class="hero hero-immersive" id="anasayfa"><img class="hero-photo" src="media/fashion-editorial.jpg?v=mobile-full-02" alt="Tuğçe Creative için sinematik moda editoryali"><div class="hero-shade"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="eyebrow">Bağımsız yaratıcı stüdyo · Yapay zekâ destekli</div><h1>Her marka bir<br><em>hikâye taşır.</em></h1><p>Önemli olan, onu doğru anlatmak. AI destekli kreatif üretimle markalara özel görsel ve video içerikler tasarlıyorum.</p><div class="actions"><a class="btn" href="#portfoy">Çalışmaları keşfet <span>↗</span></a><a class="text-link" href="#yaklasim">Yaratıcı yaklaşım ↓</a></div></div></div><div class="wrap hero-foot"><span>STRATEJİ / GÖRSEL / HAREKET / DİJİTAL</span><a href="#yaklasim">KEŞFETMEK İÇİN KAYDIR ↓</a></div></section>
+    <section class="hero hero-immersive" id="anasayfa"><div class="hero-image-frame"><img class="hero-photo" src="media/fashion-editorial.jpg?v=mobile-full-03" alt="Tuğçe Creative için sinematik moda editoryali"></div><div class="hero-shade"></div><div class="wrap hero-inner"><div class="hero-copy"><div class="eyebrow">Bağımsız yaratıcı stüdyo · Yapay zekâ destekli</div><h1>Her marka bir<br><em>hikâye taşır.</em></h1><p>Önemli olan, onu doğru anlatmak. AI destekli kreatif üretimle markalara özel görsel ve video içerikler tasarlıyorum.</p><div class="actions"><a class="btn" href="#portfoy">Çalışmaları keşfet <span>↗</span></a></div></div></div></section>
     <section class="intro intro-manifesto" id="yaklasim"><div class="wrap editorial-strip"><span>KREATİF KONSEPT</span><i>✳</i><span>AI PRODÜKSİYON</span><i>✳</i><span>ÜRÜN ODAKLI İÇERİK</span><i>✳</i><span>DİJİTAL GÖRSEL DENEYİM</span></div></section>
     <section class="services" id="hizmetler"><div class="wrap service-grid">
       <article class="service"><div class="service-top"><span class="service-num">01</span><span class="service-icon">✳</span></div><div class="service-label">Ürün odaklı yaratıcı üretim</div><h3>AI Görsel ve Kreatif Üretim</h3><p>Ürünlerinizi özgün konseptler, yaratıcı sahneler ve profesyonel kompozisyonlarla öne çıkaran yapay zekâ destekli görseller.</p><button type="button" class="service-discover" data-title="AI Görsel ve Kreatif Üretim" data-description="Ürün fotoğraflarınızı referans alarak markanızın tarzına uygun yaratıcı sahneler ve kampanya görselleri hazırlıyorum. Ürünün formunu, rengini ve ayırt edici detaylarını korumaya odaklanıyorum.">Hizmeti keşfet　↗</button></article>
