@@ -934,6 +934,14 @@ main > section#sss.faq{order:9!important;}
 .catalog-more{display:block;margin:26px auto 0;padding:13px 22px;border:1px solid #a99b8c;background:transparent;color:#171512;font:500 12px "DM Sans",sans-serif;cursor:pointer;letter-spacing:.02em}.catalog-more:hover{background:#171512;color:#f5eee6}
 
 .catalog-discover{display:block;margin-top:12px;color:#5f5145;font:600 12px "DM Sans",sans-serif;letter-spacing:.025em;text-decoration:underline;text-decoration-color:#b6a58f;text-underline-offset:4px;transition:color .2s}.catalog-card:hover .catalog-discover{color:#171512;text-decoration-color:#171512}.catalog-card:focus-visible{outline:1px solid #8a7d70;outline-offset:5px}
+
+/* Mobile portfolio cards: keep the inline discover arrow, hide the duplicate corner arrow */
+@media (max-width: 700px) {
+  .portfolio-catalog .catalog-card .catalog-arrow {
+    display: none !important;
+  }
+}
+
 </style>
 
 <script>
