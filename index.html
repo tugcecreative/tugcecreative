@@ -269,6 +269,21 @@
  .hero-immersive .hero-photo{height:45svh!important}
 }
 
+  
+/* MOBILE HERO: IMAGE AND COPY IN ONE CONTINUOUS FLOW */
+@media(max-width:760px){
+ .hero-immersive{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;height:auto!important;min-height:0!important;max-height:none!important;padding:0 0 82px!important;overflow:hidden!important}
+ .hero-immersive .hero-photo{position:absolute!important;top:0!important;left:0!important;right:0!important;bottom:auto!important;width:100%!important;height:45svh!important;max-height:480px!important;object-fit:contain!important;object-position:center top!important;background:#10110f!important}
+ .hero-immersive .hero-shade{position:absolute!important;top:0!important;left:0!important;right:0!important;height:45svh!important;bottom:auto!important;background:linear-gradient(180deg,rgba(10,11,10,.05),rgba(10,11,10,.10) 65%,#10110f 100%)!important}
+ .hero-immersive .hero-inner{position:relative!important;z-index:2!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;margin-top:45svh!important;padding-top:22px!important;padding-bottom:0!important;align-items:initial!important}
+ .hero-immersive .hero-copy{width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+ .hero-immersive .hero-copy .eyebrow{margin:0 0 20px!important}
+ .hero-immersive .hero-copy h1{font-size:clamp(42px,10.5vw,58px)!important;line-height:1.02!important;margin:0 0 22px!important}
+ .hero-immersive .hero-copy p{margin:0 0 24px!important;max-width:100%!important}
+ .hero-immersive .hero-copy .actions{display:flex!important;flex-wrap:wrap!important;gap:16px!important}
+ .hero-immersive .hero-foot{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;width:auto!important;max-width:none!important;margin:44px 15px 0!important;padding-top:14px!important;transform:none!important}
+}
+
   </style>
 </head>
 <body>
