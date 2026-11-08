@@ -485,6 +485,53 @@ footer{background:#f7f3ed;color:#171512}
 /* HERO COPY CONTRAST — paragraph must remain readable over the light image treatment */
 .hero-immersive .hero-copy p{color:#40382f!important;font-weight:500;text-shadow:0 1px 0 rgba(255,255,255,.18)}
 
+  
+/* MOBILE HERO REBUILD — clear campaign image, readable editorial copy */
+@media(max-width:760px){
+  .hero-immersive{
+    display:flex!important;flex-direction:column!important;
+    height:auto!important;min-height:0!important;max-height:none!important;
+    padding:0!important;overflow:hidden;background:#11120f!important;
+  }
+  .hero-immersive .hero-photo{
+    position:relative!important;inset:auto!important;z-index:0!important;
+    display:block;width:100%!important;height:62vw!important;max-height:430px!important;
+    min-height:250px;object-fit:cover!important;object-position:center 24%!important;
+    filter:brightness(.88) saturate(.9)!important;
+  }
+  .hero-immersive .hero-shade{display:none!important}
+  .hero-immersive .hero-inner{
+    order:1;display:block!important;height:auto!important;min-height:0!important;
+    padding-top:0!important;align-items:initial!important;
+  }
+  .hero-immersive .hero-copy{
+    width:100%;max-width:none!important;padding:42px 0 0!important;
+    color:#f7f4ed!important;
+  }
+  .hero-immersive .hero-copy .eyebrow{color:#c9bca9!important;font-size:9px;letter-spacing:.14em}
+  .hero-immersive .hero-copy h1{
+    color:#f7f4ed!important;font-size:clamp(50px,13vw,78px)!important;
+    line-height:.98!important;margin:0 0 22px!important;
+  }
+  .hero-immersive .hero-copy h1 em{color:#e6d9c9!important}
+  .hero-immersive .hero-copy p{
+    color:#e5e1d9!important;font-size:15px!important;line-height:1.8!important;
+    margin:0 0 27px!important;max-width:36ch;
+  }
+  .hero-immersive .actions{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+  .hero-immersive .btn{background:#f2eee6!important;color:#171512!important;border-color:#f2eee6!important}
+  .hero-immersive .text-link{color:#f2eee6!important;border-color:#a9a39a!important}
+  .hero-immersive .hero-foot{
+    order:2;position:static!important;left:auto!important;bottom:auto!important;
+    transform:none!important;width:calc(100% - 36px)!important;
+    margin:40px auto 28px!important;padding-top:16px!important;
+    display:flex!important;gap:12px;align-items:center;flex-wrap:wrap;
+    color:#d2cec5!important;border-color:#77736b!important;
+    font-size:8px!important;letter-spacing:.1em!important;
+  }
+  .hero-immersive .hero-foot a{color:#f2eee6!important}
+}
+
   </style>
 </head>
 <body>
