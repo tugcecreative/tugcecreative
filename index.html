@@ -842,6 +842,25 @@ footer{background:#f7f3ed;color:#171512}
   }
 }
 
+  
+/* TALLY EMBED — seamless dark integration */
+.tally-embed-wrap{
+  width:100%!important;max-width:760px!important;min-width:0!important;
+  margin:0 auto!important;padding:0!important;
+  border:0!important;border-radius:18px!important;
+  overflow:hidden!important;background:transparent!important;
+  box-shadow:none!important;text-align:left!important;
+}
+.tally-embed-wrap iframe{
+  display:block!important;width:100%!important;max-width:100%!important;
+  border:0!important;border-radius:18px!important;
+  background:transparent!important;
+}
+@media(max-width:760px){
+  .tally-embed-wrap{border-radius:14px!important}
+  .tally-embed-wrap iframe{border-radius:14px!important}
+}
+
   </style>
 </head>
 <body>
@@ -885,8 +904,8 @@ footer{background:#f7f3ed;color:#171512}
         </div>
         <div class="tally-embed-wrap" aria-label="Tuğçe Creative proje ve iş birliği başvuru formu">
           <iframe
-            data-tally-src="https://tally.so/embed/rDBl4N?alignLeft=1&hideTitle=1&dynamicHeight=1"
-            src="https://tally.so/embed/rDBl4N?alignLeft=1&hideTitle=1&dynamicHeight=1"
+            data-tally-src="https://tally.so/embed/rDBl4N?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            src="https://tally.so/embed/rDBl4N?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
             loading="lazy"
             width="100%"
             height="1900"
