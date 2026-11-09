@@ -30,7 +30,7 @@ jobs:
       - name: Prepare site files
         run: |
           mkdir site
-          cp index.html hizmetler.html hakkimda.html site/
+          cp index.html hizmetler.html hakkimda.html avatarlar.html site/
           cp -R media site/media
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
