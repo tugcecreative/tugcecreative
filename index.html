@@ -1063,7 +1063,19 @@ main > section#sss.faq{order:9!important;}
     document.querySelectorAll('[data-open-category]').forEach(button=>button.addEventListener('click',()=>showCategory(button.dataset.openCategory)));
     document.querySelector('.portfolio-back').addEventListener('click',()=>{results.hidden=true;catalog.hidden=false;activeCategory=null;catalog.scrollIntoView({behavior:'smooth',block:'start'});});
     moreButton.addEventListener('click',()=>{projectGrid.querySelectorAll('.project[data-category="'+activeCategory+'"]').forEach(card=>card.hidden=false);moreButton.hidden=true;});
-    const videoObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{const video=entry.target;if(entry.isIntersecting){video.play().catch(()=>{});}else{video.pause();}}),{threshold:0.55});document.querySelectorAll('[data-autoplay-on-view]').forEach(video=>videoObserver.observe(video));
+    const portfolioVideos=document.querySelectorAll('#videolar video[data-autoplay-on-view]');
+    portfolioVideos.forEach(video=>{video.muted=true;video.defaultMuted=true;video.playsInline=true;video.setAttribute('autoplay','');video.setAttribute('muted','');video.preload='auto';});
+    const videoObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+      const video=entry.target;
+      if(entry.isIntersecting){
+        video.muted=true;
+        const playAttempt=video.play();
+        if(playAttempt&&typeof playAttempt.catch==='function')playAttempt.catch(()=>{});
+      }else{
+        video.pause();
+      }
+    }),{threshold:0.15,rootMargin:'0px 0px -8% 0px'});
+    portfolioVideos.forEach(video=>videoObserver.observe(video));
     document.querySelectorAll('.comparison-range').forEach(range=>{const update=()=>{const stage=range.previousElementSibling;const value=Number(range.value);stage.querySelector('.after-reveal').style.clipPath='inset(0 0 0 '+value+'%)';stage.querySelector('.compare-line').style.left=value+'%';stage.querySelector('.compare-knob').style.left=value+'%';};range.addEventListener('input',update);update();});
     document.querySelectorAll('.comparison-card .compare').forEach(stage=>{const knob=stage.querySelector('.compare-knob');const range=stage.nextElementSibling;const move=e=>{const rect=stage.getBoundingClientRect();range.value=Math.max(0,Math.min(100,(e.clientX-rect.left)/rect.width*100));range.dispatchEvent(new Event('input',{bubbles:true}));};knob.addEventListener('pointerdown',e=>{e.preventDefault();knob.setPointerCapture(e.pointerId);move(e);});knob.addEventListener('pointermove',e=>{if(knob.hasPointerCapture(e.pointerId))move(e);});});
   
