@@ -1387,20 +1387,44 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
   ];
   const labels=['Kadın karakter portresi','Kadın karakter portresi','Genç kadın dijital avatar örneği','Genç erkek dijital avatar örneği','Kız çocuk dijital avatar örneği','Erkek çocuk dijital avatar örneği','Çocuk portresi dijital avatar örneği','Küçük yaş dijital avatar örneği','Olgun kadın dijital avatar örneği','Olgun erkek dijital avatar örneği'];
   const slots=Array.from(gallery.querySelectorAll('img'));
-  const positions=[0,1,2];
-  window.setInterval(function(){
-    if(document.hidden) return;
-    slots.forEach(function(img,slot){
-      positions[slot]=(positions[slot]+1)%images.length;
-      const next=positions[slot];
+  let current=slots.map(function(img){return images.findIndex(function(src){return img.getAttribute('src')===src || img.src===new URL(src,document.baseURI).href;});});
+  function shuffled(items){
+    const copy=items.slice();
+    for(let i=copy.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [copy[i],copy[j]]=[copy[j],copy[i]];
+    }
+    return copy;
+  }
+  function showNextSet(){
+    const available=shuffled(images.map(function(_,index){return index;}).filter(function(index){return !current.includes(index);}));
+    if(available.length<slots.length) return;
+    const nextSet=available.slice(0,slots.length);
+    const loaded=[];
+    let ready=0;
+    nextSet.forEach(function(index,slot){
       const preload=new Image();
-      preload.onload=function(){
-        img.classList.add('is-changing');
-        window.setTimeout(function(){img.src=images[next];img.alt=labels[next];img.classList.remove('is-changing');},220);
+      preload.onload=preload.onerror=function(){
+        ready++;
+        if(ready===nextSet.length){
+          slots.forEach(function(img,position){
+            const next=nextSet[position];
+            img.classList.add('is-changing');
+            window.setTimeout(function(){
+              img.src=images[next];
+              img.alt=labels[next]||'Dijital avatar portresi';
+              img.classList.remove('is-changing');
+            },220);
+          });
+          current=nextSet;
+        }
       };
-      preload.src=images[next];
+      preload.src=images[index];
     });
-  },3200);
+  }
+  window.setInterval(function(){
+    if(!document.hidden) showNextSet();
+  },3000);
 })();
 </script>
 
