@@ -1169,8 +1169,8 @@ main > section#sss.faq{order:9!important;}
     }
     function startVideo(video) {
       if (!isInViewport(video)) return;
-      video.muted = true;
-      video.defaultMuted = true;
+      // Muted is set once during initialization. Do not force it here:
+      // doing so would override the visitor's sound-button choice on every tap/scroll.
       const attempt = video.play();
       if (attempt && typeof attempt.catch === 'function') {
         attempt.catch(function (error) {
