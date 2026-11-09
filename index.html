@@ -1132,13 +1132,15 @@ main > section#sss.faq{order:9!important;}
       soundButton.addEventListener('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
-        video.muted = !video.muted;
-        video.defaultMuted = video.muted;
-        updateSoundButton();
-        if (video.paused) {
-          const playAttempt = video.play();
-          if (playAttempt && typeof playAttempt.catch === 'function') playAttempt.catch(function () {});
+        const shouldMute = !video.muted;
+        video.muted = shouldMute;
+        video.defaultMuted = shouldMute;
+        if (shouldMute) {
+          video.setAttribute('muted', '');
+        } else {
+          video.removeAttribute('muted');
         }
+        updateSoundButton();
       });
       video.addEventListener('click', function () {
         if (video.paused) video.play().catch(function () {});
@@ -1147,10 +1149,10 @@ main > section#sss.faq{order:9!important;}
       video.addEventListener('play', function () { video.controls = false; });
       video.addEventListener('pause', function () { video.controls = true; });
       video.addEventListener('ended', function () { video.controls = true; });
-      updateSoundButton();
       video.muted = true;
       video.defaultMuted = true;
       video.setAttribute('muted', '');
+      updateSoundButton();
       video.setAttribute('autoplay', '');
       video.playsInline = true;
       video.setAttribute('playsinline', '');
