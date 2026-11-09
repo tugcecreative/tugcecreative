@@ -1110,33 +1110,55 @@ main > section#sss.faq{order:9!important;}
       video.setAttribute('autoplay', '');
       video.playsInline = true;
       video.setAttribute('playsinline', '');
+      video.setAttribute('webkit-playsinline', '');
       video.preload = 'auto';
+      video.addEventListener('canplay', function () {
+        if (isInViewport(video)) startVideo(video);
+      });
     });
+    function isInViewport(video) {
+      const rect = video.getBoundingClientRect();
+      return rect.bottom > 0 && rect.top < window.innerHeight &&
+        rect.right > 0 && rect.left < window.innerWidth;
+    }
     function startVideo(video) {
+      if (!isInViewport(video)) return;
       video.muted = true;
+      video.defaultMuted = true;
       const attempt = video.play();
-      if (attempt && typeof attempt.catch === 'function') attempt.catch(function () {});
+      if (attempt && typeof attempt.catch === 'function') {
+        attempt.catch(function (error) {
+          // Mobile browsers may require a user gesture or may block autoplay in power-saving mode.
+          video.dataset.autoplayBlocked = 'true';
+        });
+      }
+    }
+    function retryVisibleVideos() {
+      videos.forEach(function (video) {
+        if (isInViewport(video)) startVideo(video);
+      });
     }
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.1) startVideo(entry.target);
+          if (entry.isIntersecting) startVideo(entry.target);
           else entry.target.pause();
         });
-      }, { threshold: [0, 0.1, 0.25] });
+      }, { threshold: 0.01, rootMargin: '80px 0px' });
       videos.forEach(function (video) { observer.observe(video); });
     } else {
-      function check() {
-        videos.forEach(function (video) {
-          const rect = video.getBoundingClientRect();
-          if (rect.bottom > 0 && rect.top < window.innerHeight) startVideo(video);
-          else video.pause();
-        });
-      }
-      window.addEventListener('scroll', check, { passive: true });
-      window.addEventListener('resize', check);
-      check();
+      window.addEventListener('scroll', retryVisibleVideos, { passive: true });
+      window.addEventListener('resize', retryVisibleVideos);
     }
+    // A first tap/scroll on mobile unlocks playback in browsers that reject initial autoplay.
+    document.addEventListener('touchstart', retryVisibleVideos, { passive: true });
+    document.addEventListener('pointerdown', retryVisibleVideos, { passive: true });
+    document.addEventListener('scroll', retryVisibleVideos, { passive: true });
+    window.addEventListener('pageshow', retryVisibleVideos);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) retryVisibleVideos();
+    });
+    window.setTimeout(retryVisibleVideos, 400);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initPortfolioVideoAutoplay, { once: true });
   else initPortfolioVideoAutoplay();
