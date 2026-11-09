@@ -1372,7 +1372,10 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
 (function(){
   const gallery=document.querySelector('.faces .face-grid');
   if(!gallery) return;
+  // Avatar galerisindeki tüm portreler ana sayfadaki üçlü slaytta sırayla gösterilir.
   const images=[
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/b80ec9da-86db-4d87-b80c-64de9a4ed263.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/9d6bafe5-cca5-4500-941c-419036d6df98.jpg',
     'media/avatar-woman-young.jpg',
     'media/avatar-man-young.jpg',
     'media/avatar-child-girl.jpg',
@@ -1382,9 +1385,9 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
     'media/avatar-woman-mature.jpg',
     'media/avatar-man-mature.jpg'
   ];
-  const labels=['Genç kadın dijital avatar örneği','Genç erkek dijital avatar örneği','Kız çocuk dijital avatar örneği','Erkek çocuk dijital avatar örneği','Çocuk portresi dijital avatar örneği','Küçük yaş dijital avatar örneği','Olgun kadın dijital avatar örneği','Olgun erkek dijital avatar örneği'];
+  const labels=['Kadın karakter portresi','Kadın karakter portresi','Genç kadın dijital avatar örneği','Genç erkek dijital avatar örneği','Kız çocuk dijital avatar örneği','Erkek çocuk dijital avatar örneği','Çocuk portresi dijital avatar örneği','Küçük yaş dijital avatar örneği','Olgun kadın dijital avatar örneği','Olgun erkek dijital avatar örneği'];
   const slots=Array.from(gallery.querySelectorAll('img'));
-  const positions=[0,1,6];
+  const positions=[0,1,2];
   window.setInterval(function(){
     if(document.hidden) return;
     slots.forEach(function(img,slot){
