@@ -2,7 +2,16 @@
 <html lang="tr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+  // Eski avatar bağlantısından kalan otomatik kaydırmayı temizle.
+  (function () {
+    if (window.location.hash === '#dijital-avatarlar') {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      window.scrollTo(0, 0);
+    }
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10110f">
   <meta name="description" content="Tuğçe Creative: Mobilya, aksesuar ve markalar için yapay zekâ destekli görsel ve video üretimi.">
   <title>Tuğçe Creative — Yapay zekâ ile görsel ve video üretimi</title>
