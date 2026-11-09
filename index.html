@@ -3,12 +3,22 @@
 <head>
   <meta charset="utf-8">
   <script>
-  // Eski avatar bağlantısından kalan otomatik kaydırmayı temizle.
+  // Ana sayfa her yeni açılışta en üstten başlasın; eski kaydırma konumunu geri yükleme.
   (function () {
-    if (window.location.hash === '#dijital-avatarlar') {
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash === '#dijital-avatarlar' || location.hash === '#avatar-portfoy-alani') {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    function resetHomeScroll() {
+      if (location.pathname.endsWith('/avatarlar.html')) return;
       window.scrollTo(0, 0);
     }
+    window.addEventListener('pageshow', resetHomeScroll);
+    window.addEventListener('load', function () {
+      resetHomeScroll();
+      requestAnimationFrame(resetHomeScroll);
+      setTimeout(resetHomeScroll, 80);
+    });
   })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
