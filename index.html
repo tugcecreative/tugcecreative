@@ -974,9 +974,19 @@ main > section#sss.faq{order:9!important;}
   
 /* DESKTOP HERO: keep model hair fully inside the visible frame */
 @media screen and (min-width: 901px) {
+  html body main section#anasayfa.hero.hero-immersive .hero-image-frame {
+    position: absolute !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+    background: #171815 !important;
+  }
   html body main section#anasayfa.hero.hero-immersive .hero-image-frame img.hero-photo {
-    object-fit: cover !important;
-    object-position: center top !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
   }
 }
 
