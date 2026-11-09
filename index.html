@@ -1064,6 +1064,22 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
   object-position:center center!important;
   display:block!important;
 }
+
+    /* Mobile comparison labels: keep the two captions compact and separated */
+    @media(max-width:520px){
+      .comparison-card .compare .tag{
+        top:10px;
+        padding:6px 7px;
+        font-size:7px;
+        line-height:1.2;
+        letter-spacing:.055em;
+        white-space:nowrap;
+        border-radius:2px;
+        background:rgba(250,248,243,.94);
+      }
+      .comparison-card .compare .tag.left{left:9px;right:auto}
+      .comparison-card .compare .tag.right{right:9px;left:auto}
+    }
 </style>
 
 
