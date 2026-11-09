@@ -32,6 +32,7 @@ jobs:
           mkdir site
           cp index.html hizmetler.html hakkimda.html avatarlar.html site/
           cp -R media site/media
+          cp -R studio-preview site/studio-preview
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
