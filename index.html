@@ -1089,6 +1089,21 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       .comparison-card h3{min-height:2.5em;line-height:1.25;margin:0 0 14px}
     }
 
+  
+    /* Mobilde önce/sonra kartlarını tek sütunda göster; geç gelen masaüstü grid kuralını ez. */
+    @media screen and (max-width:760px){
+      html body .before .comparison-grid{
+        display:grid!important;
+        grid-template-columns:minmax(0,1fr)!important;
+        gap:38px!important;
+        width:100%!important;
+        max-width:520px!important;
+        margin-inline:auto!important;
+      }
+      html body .before .comparison-card{width:100%!important;min-width:0!important}
+      html body .before .comparison-card h3{min-height:0!important;margin:0 0 14px!important}
+    }
+
   </style>
 
 
