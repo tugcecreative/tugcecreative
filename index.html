@@ -1118,6 +1118,32 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
     html body .before .comparison-card .comparison-boots .after-reveal img{
       object-fit:cover!important;
     }
+  
+    /* Bot karşılaştırmasını mobilde kartın tüm genişliğine yay; iki katman aynı kareyi kaplasın. */
+    html body .before .comparison-card .comparison-boots{
+      display:block!important;
+      position:relative!important;
+      width:100%!important;
+      max-width:none!important;
+      height:auto!important;
+      aspect-ratio:1/1!important;
+      overflow:hidden!important;
+      padding:0!important;
+      margin:0!important;
+      background:transparent!important;
+    }
+    html body .before .comparison-card .comparison-boots>img,
+    html body .before .comparison-card .comparison-boots .after-reveal,
+    html body .before .comparison-card .comparison-boots .after-reveal img{
+      position:absolute!important;
+      inset:0!important;
+      display:block!important;
+      width:100%!important;
+      max-width:none!important;
+      height:100%!important;
+      object-fit:cover!important;
+      margin:0!important;
+    }
   </style>
 
 
