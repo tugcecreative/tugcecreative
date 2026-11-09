@@ -1174,50 +1174,7 @@ main > section#sss.faq{order:9!important;}
     document.querySelector('.portfolio-back').addEventListener('click',()=>{results.hidden=true;catalog.hidden=false;activeCategory=null;catalog.scrollIntoView({behavior:'smooth',block:'start'});});
     moreButton.addEventListener('click',()=>{projectGrid.querySelectorAll('.project[data-category="'+activeCategory+'"]').forEach(card=>card.hidden=false);moreButton.hidden=true;});
     /* Video autoplay is handled by the isolated observer below. */
-    document.querySelectorAll('.comparison-card').forEach(card=>{
-      const stage=card.querySelector('.compare'), range=card.querySelector('.comparison-range');
-      const reveal=stage&&stage.querySelector('.after-reveal'), line=stage&&stage.querySelector('.compare-line'), knob=stage&&stage.querySelector('.compare-knob');
-      if(!stage||!range||!reveal||!line||!knob) return;
-      let dragging=false;
-      const update=value=>{
-        const v=Math.max(0,Math.min(100,Number(value)));
-        range.value=v;
-        reveal.style.clipPath='inset(0 0 0 '+v+'%)';
-        line.style.left=v+'%';
-        knob.style.left=v+'%';
-      };
-      const move=clientX=>{
-        const rect=stage.getBoundingClientRect();
-        update((clientX-rect.left)/rect.width*100);
-      };
-      range.addEventListener('input',()=>update(range.value));
-      knob.addEventListener('pointerdown',event=>{
-        event.preventDefault();
-        event.stopPropagation();
-        dragging=true;
-        knob.setPointerCapture(event.pointerId);
-        move(event.clientX);
-      });
-      knob.addEventListener('pointermove',event=>{
-        if(dragging && knob.hasPointerCapture(event.pointerId)) move(event.clientX);
-      });
-      const finishDrag=event=>{
-        dragging=false;
-        if(knob.hasPointerCapture(event.pointerId)) knob.releasePointerCapture(event.pointerId);
-      };
-      knob.addEventListener('pointerup',finishDrag);
-      knob.addEventListener('pointercancel',finishDrag);
-      stage.addEventListener('pointerdown',event=>{
-        if(event.target.closest('.tag')) return;
-        event.preventDefault();
-        dragging=true;
-        move(event.clientX);
-      });
-      window.addEventListener('pointermove',event=>{if(dragging) move(event.clientX);});
-      window.addEventListener('pointerup',()=>{dragging=false;});
-      window.addEventListener('pointercancel',()=>{dragging=false;});
-      update(range.value);
-    });
+
   
 
 
@@ -1390,6 +1347,44 @@ main > section#sss.faq{order:9!important;}
 })();
 </script>
 
+
+
+<script>
+(function(){
+  function setupComparisons(){
+    document.querySelectorAll('.comparison-card').forEach(function(card){
+      var stage=card.querySelector('.compare');
+      var reveal=card.querySelector('.after-reveal');
+      var line=card.querySelector('.compare-line');
+      var knob=card.querySelector('.compare-knob');
+      if(!stage||!reveal||!line||!knob||stage.dataset.sliderReady==='true') return;
+      stage.dataset.sliderReady='true';
+      var dragging=false;
+      function setPosition(clientX){
+        var rect=stage.getBoundingClientRect();
+        if(!rect.width) return;
+        var value=Math.max(0,Math.min(100,(clientX-rect.left)/rect.width*100));
+        reveal.style.clipPath='inset(0 0 0 '+value+'%)';
+        line.style.left=value+'%';
+        knob.style.left=value+'%';
+      }
+      stage.addEventListener('pointerdown',function(event){
+        if(event.target.closest('.tag')) return;
+        dragging=true;
+        event.preventDefault();
+        setPosition(event.clientX);
+      });
+      document.addEventListener('pointermove',function(event){
+        if(dragging) setPosition(event.clientX);
+      });
+      document.addEventListener('pointerup',function(){dragging=false;});
+      document.addEventListener('pointercancel',function(){dragging=false;});
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',setupComparisons);
+  else setupComparisons();
+})();
+</script>
 
 </body>
 </html>
