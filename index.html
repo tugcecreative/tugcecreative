@@ -1144,6 +1144,39 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       object-fit:cover!important;
       margin:0!important;
     }
+  
+    /* Kesin kare geometri: yükseklik başka kurallardan gelmesin, genişlikten hesaplansın. */
+    html body section.before .comparison-grid .comparison-card .comparison-boots{
+      box-sizing:border-box!important;
+      display:block!important;
+      width:100%!important;
+      min-width:0!important;
+      max-width:none!important;
+      height:auto!important;
+      min-height:0!important;
+      max-height:none!important;
+      aspect-ratio:1 / 1!important;
+      overflow:hidden!important;
+      position:relative!important;
+      padding:0!important;
+      border:0!important;
+      background:transparent!important;
+    }
+    html body section.before .comparison-grid .comparison-card .comparison-boots > img,
+    html body section.before .comparison-grid .comparison-card .comparison-boots .after-reveal,
+    html body section.before .comparison-grid .comparison-card .comparison-boots .after-reveal > img{
+      box-sizing:border-box!important;
+      position:absolute!important;
+      inset:0!important;
+      width:100%!important;
+      height:100%!important;
+      max-width:none!important;
+      max-height:none!important;
+      object-fit:cover!important;
+      object-position:center center!important;
+      margin:0!important;
+      padding:0!important;
+    }
   </style>
 
 
