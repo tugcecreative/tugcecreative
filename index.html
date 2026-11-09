@@ -1083,7 +1083,13 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
 
     /* Mobilde karşılaştırma etiketleri görselin üzerine binmesin. */
     @media(max-width:760px){.comparison-card .compare .tag{display:none!important}}
-</style>
+
+    /* Mobil öncesi/sonrası kartlarında başlık alanlarını eşitle: görseller aynı hizada başlasın. */
+    @media(max-width:760px){
+      .comparison-card h3{min-height:2.5em;line-height:1.25;margin:0 0 14px}
+    }
+
+  </style>
 
 
 </head>
