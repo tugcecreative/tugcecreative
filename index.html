@@ -182,7 +182,9 @@
       .hero-foot{margin-top:30px!important}
     }
 
-    .portfolio-catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px}.catalog-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-width:0;padding:0 0 18px;border:0;border-bottom:1px solid #55564d;background:transparent;color:#f5f4ee;cursor:pointer}.catalog-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:17px;transition:transform .5s}.catalog-card:hover img{transform:scale(.985)}
+    .portfolio-catalog .catalog-card > img{opacity:1;transition:opacity .45s ease,transform .5s}
+.portfolio-catalog .catalog-card > img.is-changing{opacity:.15}
+.portfolio-catalog{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px}.catalog-card{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-width:0;padding:0 0 18px;border:0;border-bottom:1px solid #55564d;background:transparent;color:#f5f4ee;cursor:pointer}.catalog-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:17px;transition:transform .5s}.catalog-card:hover img{transform:scale(.985)}
 /* Category covers keep original high-resolution sources; only the cover crop is repositioned to protect faces and product details. */
 .catalog-card[data-open-category="fashion"] img{object-position:center top}
 .catalog-card[data-open-category="jewelry"] img{object-position:center 38%}
@@ -1121,6 +1123,36 @@ main > section#sss.faq{order:9!important;}
     const moreButton=document.querySelector('.portfolio-more');
     const currentLabel=document.querySelector('.portfolio-current-label');
     const categoryNames={fashion:'Moda & Giyim',jewelry:'Takı & Aksesuar',furniture:'Mobilya'};
+    // Kategori kapaklarında, o kategoriye ait portföy görsellerini sırayla göster.
+    (function initCatalogSlides(){
+      const cards=Array.from(catalog.querySelectorAll('.catalog-card[data-open-category]'));
+      cards.forEach(card=>{
+        const category=card.dataset.openCategory;
+        const cover=card.querySelector('img');
+        if(!cover) return;
+        const seen=new Set([cover.getAttribute('src')]);
+        const slides=Array.from(projectGrid.querySelectorAll('.project[data-category="'+category+'"] img'))
+          .map(img=>({src:img.getAttribute('src'),alt:img.getAttribute('alt')||cover.alt}))
+          .filter(item=>item.src&&!seen.has(item.src)&&seen.add(item.src));
+        if(!slides.length) return;
+        let index=0;
+        window.setInterval(()=>{
+          if(document.hidden || !card.isConnected) return;
+          const next=slides[index];
+          const preload=new Image();
+          preload.onload=()=>{
+            cover.classList.add('is-changing');
+            window.setTimeout(()=>{
+              cover.src=next.src;
+              cover.alt=next.alt;
+              cover.classList.remove('is-changing');
+            },220);
+          };
+          preload.src=next.src;
+          index=(index+1)%slides.length;
+        },3200);
+      });
+    })();
     let activeCategory=null;
     function showCategory(category){
       activeCategory=category;catalog.hidden=true;results.hidden=false;currentLabel.textContent=categoryNames[category]||'';
