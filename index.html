@@ -50,7 +50,7 @@
     @media(max-width:430px){.wrap{width:calc(100% - 30px)}.hero{min-height:0}.hero .actions{gap:18px;flex-wrap:wrap}.btn{min-width:166px;gap:20px}.hero-foot{font-size:8px}.project-grid{grid-template-columns:1fr}.furniture-pair,.earring-pair{grid-template-columns:1fr}.video-grid{grid-template-columns:minmax(0,360px)}.video-grid{grid-template-columns:1fr}.benefits{grid-template-columns:1fr}.face-grid{gap:7px}.contact form{grid-template-columns:1fr}.field.full,.form-submit{grid-column:1}.checks{grid-template-columns:1fr}.whatsapp{width:50px;height:50px;right:14px;bottom:14px}}
   
     .furniture-video{display:grid;grid-template-columns:minmax(180px,.65fr) minmax(220px,360px);align-items:center;justify-content:space-between;gap:28px;margin-top:30px;padding-top:24px;border-top:1px solid #55574c}.furniture-video h4{font-size:20px;font-weight:500;margin:12px 0}.furniture-video video{width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#111;display:block}
-    .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.comparison-card{min-width:0}.comparison-card h3{font-size:19px;font-weight:500;margin:0 0 14px}.comparison-card .compare{position:relative;width:100%;overflow:hidden;background:#f2f1ed}.comparison-card .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.comparison-square{aspect-ratio:1/1}.comparison-portrait{aspect-ratio:3/4}.comparison-card .compare .after{clip-path:inset(0 0 0 50%)}.comparison-card .compare .after-reveal{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 0 50%);z-index:1}.comparison-card .compare .after-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.comparison-card .compare>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.comparison-card .compare .compare-line,.comparison-card .compare .compare-knob{z-index:2}.comparison-card .compare .compare-knob{cursor:ew-resize;touch-action:none}.comparison-card .comparison-range{display:block;cursor:ew-resize;touch-action:pan-y}.comparison-card .compare .compare-line{position:absolute;top:0;bottom:0;left:50%;width:1px;background:#fff;box-shadow:0 0 0 1px #2223}.comparison-card .compare .compare-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border:0;border-radius:50%;color:#fff;background:var(--ink);font-size:19px}.comparison-card .compare .tag{z-index:2}.comparison-range{width:100%;margin-top:14px;accent-color:#777b5f}.video-grid{display:grid;grid-template-columns:minmax(240px,360px);justify-content:center}.video-card video{width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#111;display:block}
+    .comparison-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.comparison-card{min-width:0}.comparison-card h3{font-size:19px;font-weight:500;margin:0 0 14px}.comparison-card .compare{position:relative;width:100%;overflow:hidden;background:#f2f1ed}.comparison-card .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.comparison-square{aspect-ratio:1/1}.comparison-portrait{aspect-ratio:3/4}.comparison-card .compare .after{clip-path:inset(0 0 0 50%)}.comparison-card .compare .after-reveal{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 0 50%);z-index:1}.comparison-card .compare .after-reveal img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.comparison-card .compare>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.comparison-card .compare .compare-line,.comparison-card .compare .compare-knob{z-index:2}.comparison-card .compare .compare-knob{cursor:ew-resize;touch-action:none}.comparison-card .compare .compare-knob{pointer-events:auto;z-index:5}.comparison-card .compare .after-reveal{pointer-events:none}.comparison-card .comparison-range{display:block;cursor:ew-resize;touch-action:pan-y}.comparison-card .compare .compare-line{position:absolute;top:0;bottom:0;left:50%;width:1px;background:#fff;box-shadow:0 0 0 1px #2223}.comparison-card .compare .compare-knob{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border:0;border-radius:50%;color:#fff;background:var(--ink);font-size:19px}.comparison-card .compare .tag{z-index:2}.comparison-range{width:100%;margin-top:14px;accent-color:#777b5f}.video-grid{display:grid;grid-template-columns:minmax(240px,360px);justify-content:center}.video-card video{width:100%;height:auto;aspect-ratio:9/16;object-fit:contain;background:#111;display:block}
     @media(max-width:760px){.comparison-grid{grid-template-columns:1fr;gap:32px}.furniture-video{grid-template-columns:1fr;max-width:360px;margin-left:auto;margin-right:auto}.furniture-heading{align-items:flex-start;flex-direction:column}.form-submit{align-items:stretch}.form-submit .btn{width:100%}}
   
     .comparison-card .comparison-earring{aspect-ratio:16/9}
@@ -1175,36 +1175,32 @@ main > section#sss.faq{order:9!important;}
     moreButton.addEventListener('click',()=>{projectGrid.querySelectorAll('.project[data-category="'+activeCategory+'"]').forEach(card=>card.hidden=false);moreButton.hidden=true;});
     /* Video autoplay is handled by the isolated observer below. */
     document.querySelectorAll('.comparison-card').forEach(card=>{
-      const stage=card.querySelector('.compare');
-      const range=card.querySelector('.comparison-range');
-      const reveal=stage&&stage.querySelector('.after-reveal');
-      const line=stage&&stage.querySelector('.compare-line');
-      const knob=stage&&stage.querySelector('.compare-knob');
+      const stage=card.querySelector('.compare'), range=card.querySelector('.comparison-range');
+      const reveal=stage&&stage.querySelector('.after-reveal'), line=stage&&stage.querySelector('.compare-line'), knob=stage&&stage.querySelector('.compare-knob');
       if(!stage||!range||!reveal||!line||!knob) return;
-      const setPosition=value=>{
+      let dragging=false;
+      const update=value=>{
         const v=Math.max(0,Math.min(100,Number(value)));
         range.value=v;
         reveal.style.clipPath='inset(0 0 0 '+v+'%)';
         line.style.left=v+'%';
         knob.style.left=v+'%';
       };
-      range.addEventListener('input',()=>setPosition(range.value));
-      let dragging=false;
-      const move=e=>{
+      const move=clientX=>{
         const rect=stage.getBoundingClientRect();
-        setPosition((e.clientX-rect.left)/rect.width*100);
+        update((clientX-rect.left)/rect.width*100);
       };
-      stage.addEventListener('pointerdown',e=>{
-        if(e.target.closest('.tag')) return;
+      range.addEventListener('input',()=>update(range.value));
+      stage.addEventListener('pointerdown',event=>{
+        if(event.target.closest('.tag')) return;
+        event.preventDefault();
         dragging=true;
-        stage.setPointerCapture(e.pointerId);
-        move(e);
+        move(event.clientX);
       });
-      stage.addEventListener('pointermove',e=>{if(dragging) move(e);});
-      const stop=()=>{dragging=false;};
-      stage.addEventListener('pointerup',stop);
-      stage.addEventListener('pointercancel',stop);
-      setPosition(range.value);
+      window.addEventListener('pointermove',event=>{if(dragging) move(event.clientX);});
+      window.addEventListener('pointerup',()=>{dragging=false;});
+      window.addEventListener('pointercancel',()=>{dragging=false;});
+      update(range.value);
     });
   
 
@@ -1379,34 +1375,5 @@ main > section#sss.faq{order:9!important;}
 </script>
 
 
-<script>
-(function(){
- function initBeforeAfter(){
-  document.querySelectorAll('.comparison-card').forEach(function(card){
-   const stage=card.querySelector('.compare'), range=card.querySelector('.comparison-range');
-   const reveal=stage&&stage.querySelector('.after-reveal'), line=stage&&stage.querySelector('.compare-line'), knob=stage&&stage.querySelector('.compare-knob');
-   if(!stage||!range||!reveal||!line||!knob||stage.dataset.dragReady) return;
-   stage.dataset.dragReady='1';
-   function update(clientX){
-    const rect=stage.getBoundingClientRect();
-    const value=Math.max(0,Math.min(100,(clientX-rect.left)/rect.width*100));
-    range.value=value;
-    reveal.style.clipPath='inset(0 0 0 '+value+'%)';
-    line.style.left=value+'%'; knob.style.left=value+'%';
-   }
-   range.addEventListener('input',function(){
-    const value=Number(range.value);
-    reveal.style.clipPath='inset(0 0 0 '+value+'%)'; line.style.left=value+'%'; knob.style.left=value+'%';
-   });
-   knob.addEventListener('pointerdown',function(e){e.preventDefault();knob.setPointerCapture(e.pointerId);update(e.clientX);});
-   knob.addEventListener('pointermove',function(e){if(knob.hasPointerCapture(e.pointerId)) update(e.clientX);});
-   knob.addEventListener('pointerup',function(e){if(knob.hasPointerCapture(e.pointerId)) knob.releasePointerCapture(e.pointerId);});
-   stage.addEventListener('click',function(e){if(e.target===knob||e.target.closest('.tag'))return;update(e.clientX);});
-   range.dispatchEvent(new Event('input',{bubbles:true}));
-  });
- }
- if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initBeforeAfter); else initBeforeAfter();
-})();
-</script>
 </body>
 </html>
