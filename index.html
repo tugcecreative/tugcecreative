@@ -1191,6 +1191,22 @@ main > section#sss.faq{order:9!important;}
         update((clientX-rect.left)/rect.width*100);
       };
       range.addEventListener('input',()=>update(range.value));
+      knob.addEventListener('pointerdown',event=>{
+        event.preventDefault();
+        event.stopPropagation();
+        dragging=true;
+        knob.setPointerCapture(event.pointerId);
+        move(event.clientX);
+      });
+      knob.addEventListener('pointermove',event=>{
+        if(dragging && knob.hasPointerCapture(event.pointerId)) move(event.clientX);
+      });
+      const finishDrag=event=>{
+        dragging=false;
+        if(knob.hasPointerCapture(event.pointerId)) knob.releasePointerCapture(event.pointerId);
+      };
+      knob.addEventListener('pointerup',finishDrag);
+      knob.addEventListener('pointercancel',finishDrag);
       stage.addEventListener('pointerdown',event=>{
         if(event.target.closest('.tag')) return;
         event.preventDefault();
