@@ -1174,8 +1174,38 @@ main > section#sss.faq{order:9!important;}
     document.querySelector('.portfolio-back').addEventListener('click',()=>{results.hidden=true;catalog.hidden=false;activeCategory=null;catalog.scrollIntoView({behavior:'smooth',block:'start'});});
     moreButton.addEventListener('click',()=>{projectGrid.querySelectorAll('.project[data-category="'+activeCategory+'"]').forEach(card=>card.hidden=false);moreButton.hidden=true;});
     /* Video autoplay is handled by the isolated observer below. */
-    document.querySelectorAll('.comparison-range').forEach(range=>{const update=()=>{const stage=range.previousElementSibling;const value=Number(range.value);stage.querySelector('.after-reveal').style.clipPath='inset(0 0 0 '+value+'%)';stage.querySelector('.compare-line').style.left=value+'%';stage.querySelector('.compare-knob').style.left=value+'%';};range.addEventListener('input',update);update();});
-    document.querySelectorAll('.comparison-card .compare').forEach(stage=>{const knob=stage.querySelector('.compare-knob');const range=stage.nextElementSibling;const move=e=>{const rect=stage.getBoundingClientRect();range.value=Math.max(0,Math.min(100,(e.clientX-rect.left)/rect.width*100));range.dispatchEvent(new Event('input',{bubbles:true}));};knob.addEventListener('pointerdown',e=>{e.preventDefault();knob.setPointerCapture(e.pointerId);move(e);});knob.addEventListener('pointermove',e=>{if(knob.hasPointerCapture(e.pointerId))move(e);});});
+    document.querySelectorAll('.comparison-card').forEach(card=>{
+      const stage=card.querySelector('.compare');
+      const range=card.querySelector('.comparison-range');
+      const reveal=stage&&stage.querySelector('.after-reveal');
+      const line=stage&&stage.querySelector('.compare-line');
+      const knob=stage&&stage.querySelector('.compare-knob');
+      if(!stage||!range||!reveal||!line||!knob) return;
+      const setPosition=value=>{
+        const v=Math.max(0,Math.min(100,Number(value)));
+        range.value=v;
+        reveal.style.clipPath='inset(0 0 0 '+v+'%)';
+        line.style.left=v+'%';
+        knob.style.left=v+'%';
+      };
+      range.addEventListener('input',()=>setPosition(range.value));
+      let dragging=false;
+      const move=e=>{
+        const rect=stage.getBoundingClientRect();
+        setPosition((e.clientX-rect.left)/rect.width*100);
+      };
+      stage.addEventListener('pointerdown',e=>{
+        if(e.target.closest('.tag')) return;
+        dragging=true;
+        stage.setPointerCapture(e.pointerId);
+        move(e);
+      });
+      stage.addEventListener('pointermove',e=>{if(dragging) move(e);});
+      const stop=()=>{dragging=false;};
+      stage.addEventListener('pointerup',stop);
+      stage.addEventListener('pointercancel',stop);
+      setPosition(range.value);
+    });
   
 
 
