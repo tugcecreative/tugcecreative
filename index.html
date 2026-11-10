@@ -1283,6 +1283,63 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       }
     }
 
+
+    /* Kategori kataloğu: yatay, sinematik kaydırma galerisi */
+    .portfolio-catalog{
+      display:flex!important;
+      flex-wrap:nowrap!important;
+      gap:28px!important;
+      overflow-x:auto!important;
+      overflow-y:hidden!important;
+      padding:4px 2px 24px!important;
+      margin-top:34px!important;
+      scroll-snap-type:x mandatory;
+      scroll-padding-left:2px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:#a59a8b #ded8cf;
+    }
+    .portfolio-catalog .catalog-card{
+      flex:0 0 62%!important;
+      width:62%!important;
+      min-width:0!important;
+      scroll-snap-align:start;
+      padding-bottom:20px!important;
+    }
+    .portfolio-catalog .catalog-card>img{
+      display:block;
+      width:100%!important;
+      height:auto!important;
+      aspect-ratio:16/9!important;
+      object-fit:cover!important;
+      object-position:center center!important;
+      margin-bottom:18px!important;
+      background:transparent!important;
+      opacity:1!important;
+      transition:transform .7s ease!important;
+    }
+    .portfolio-catalog .catalog-card:hover>img{transform:scale(.985)}
+    .portfolio-catalog::-webkit-scrollbar{height:5px}
+    .portfolio-catalog::-webkit-scrollbar-track{background:#ded8cf}
+    .portfolio-catalog::-webkit-scrollbar-thumb{background:#a59a8b;border-radius:10px}
+    @media(max-width:760px){
+      .portfolio-catalog{
+        gap:16px!important;
+        margin-top:25px!important;
+        padding:2px 18px 20px 2px!important;
+        margin-right:-18px!important;
+      }
+      .portfolio-catalog .catalog-card{
+        flex-basis:88%!important;
+        width:88%!important;
+        padding-bottom:16px!important;
+      }
+      .portfolio-catalog .catalog-card>img{
+        aspect-ratio:4/3!important;
+        margin-bottom:13px!important;
+      }
+    }
+
 </style>
 
 
@@ -1403,36 +1460,7 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
     const moreButton=document.querySelector('.portfolio-more');
     const currentLabel=document.querySelector('.portfolio-current-label');
     const categoryNames={fashion:'Moda & Giyim',jewelry:'Takı & Aksesuar',furniture:'Mobilya'};
-    // Her kategori kartında, katalogdaki tüm görselleri (kapak dahil) sırayla göster.
-    (function initCatalogSlides(){
-      const cards=Array.from(catalog.querySelectorAll('.catalog-card[data-open-category]'));
-      cards.forEach(card=>{
-        const category=card.dataset.openCategory;
-        const cover=card.querySelector('img');
-        if(!cover) return;
-        const sources=[cover,...Array.from(projectGrid.querySelectorAll('.project[data-category="'+category+'"] img'))]
-          .map(img=>({src:img.getAttribute('src')||img.getAttribute('data-src')||img.currentSrc,alt:img.getAttribute('alt')||cover.alt}))
-          .filter(item=>item.src);
-        const slides=sources.filter((item,index,list)=>list.findIndex(other=>other.src===item.src)===index);
-        if(slides.length<2) return;
-        let index=0;
-        window.setInterval(()=>{
-          if(document.hidden || !card.isConnected) return;
-          index=(index+1)%slides.length;
-          const next=slides[index];
-          const preload=new Image();
-          preload.onload=()=>{
-            cover.classList.add('is-changing');
-            window.setTimeout(()=>{
-              cover.src=next.src;
-              cover.alt=next.alt;
-              cover.classList.remove('is-changing');
-            },220);
-          };
-          preload.src=next.src;
-        },2800);
-      });
-    })();
+    // Kategori kapakları sabit kalır; kullanıcı kategoriler arasında yatay kaydırarak gezinir.
     let activeCategory=null;
     function showCategory(category){
       activeCategory=category;catalog.hidden=true;results.hidden=false;currentLabel.textContent=categoryNames[category]||'';
