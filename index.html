@@ -1177,6 +1177,31 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       margin:0!important;
       padding:0!important;
     }
+  
+    /* Çanta önce/sonra alanı, gönderilen orijinal 16:9 formatı korur. */
+    html body section.before .comparison-card .comparison-bag{
+      width:100%!important;
+      aspect-ratio:16 / 9!important;
+      height:auto!important;
+      min-height:0!important;
+      max-height:none!important;
+      overflow:hidden!important;
+      position:relative!important;
+      background:transparent!important;
+    }
+    html body section.before .comparison-card .comparison-bag > img,
+    html body section.before .comparison-card .comparison-bag .after-reveal,
+    html body section.before .comparison-card .comparison-bag .after-reveal > img{
+      position:absolute!important;
+      inset:0!important;
+      width:100%!important;
+      height:100%!important;
+      max-width:none!important;
+      max-height:none!important;
+      object-fit:cover!important;
+      object-position:center center!important;
+      margin:0!important;
+    }
   </style>
 
 
