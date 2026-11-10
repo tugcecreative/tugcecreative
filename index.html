@@ -1237,6 +1237,52 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       .portfolio-results .project-caption strong{font-size:14px}
     }
 
+
+    /* Horizontal editorial gallery — tek sıra, yatay kaydırma */
+    .portfolio-results .project-grid{
+      display:flex!important;
+      flex-wrap:nowrap!important;
+      gap:26px!important;
+      overflow-x:auto!important;
+      overflow-y:hidden!important;
+      padding:4px 2px 22px!important;
+      margin-right:calc((min(100vw - 48px, 1200px) - 100%)/2);
+      scroll-snap-type:x mandatory;
+      scroll-padding-left:2px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      scrollbar-color:#858675 #292a25;
+    }
+    .portfolio-results .project-grid > .project{
+      display:block;
+      flex:0 0 min(72%,760px)!important;
+      width:min(72%,760px)!important;
+      min-width:0!important;
+      margin:0!important;
+      scroll-snap-align:start;
+    }
+    .portfolio-results .project-grid > .project img{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+    }
+    .portfolio-results .project-grid::-webkit-scrollbar{height:5px}
+    .portfolio-results .project-grid::-webkit-scrollbar-track{background:#292a25}
+    .portfolio-results .project-grid::-webkit-scrollbar-thumb{background:#858675;border-radius:10px}
+    @media(max-width:760px){
+      .portfolio-results .project-grid{
+        gap:14px!important;
+        padding-bottom:18px!important;
+        margin-right:-18px;
+        padding-right:18px!important;
+      }
+      .portfolio-results .project-grid > .project{
+        flex-basis:86%!important;
+        width:86%!important;
+      }
+    }
+
 </style>
 
 
