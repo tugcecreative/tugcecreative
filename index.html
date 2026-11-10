@@ -1340,6 +1340,62 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       }
     }
 
+
+    /* FORCE: horizontal category cover rail */
+    html body main section#portfoy .wrap #portfolio-category-track{
+      display:flex!important;
+      flex-direction:row!important;
+      flex-wrap:nowrap!important;
+      align-items:stretch!important;
+      justify-content:flex-start!important;
+      gap:30px!important;
+      width:100%!important;
+      max-width:100%!important;
+      overflow-x:auto!important;
+      overflow-y:hidden!important;
+      padding:0 2px 26px!important;
+      margin:34px 0 0!important;
+      box-sizing:border-box!important;
+      scroll-snap-type:x mandatory!important;
+      -webkit-overflow-scrolling:touch!important;
+      scrollbar-width:thin!important;
+    }
+    html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card{
+      display:flex!important;
+      flex:0 0 72%!important;
+      width:72%!important;
+      max-width:72%!important;
+      min-width:72%!important;
+      margin:0!important;
+      scroll-snap-align:start!important;
+      box-sizing:border-box!important;
+    }
+    html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card > img{
+      width:100%!important;
+      height:auto!important;
+      aspect-ratio:16/9!important;
+      object-fit:cover!important;
+      object-position:center!important;
+    }
+    @media(max-width:760px){
+      html body main section#portfoy .wrap #portfolio-category-track{
+        gap:16px!important;
+        margin-top:25px!important;
+        padding:0 18px 22px 2px!important;
+        margin-right:-18px!important;
+        width:calc(100% + 18px)!important;
+      }
+      html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card{
+        flex-basis:88%!important;
+        width:88%!important;
+        max-width:88%!important;
+        min-width:88%!important;
+      }
+      html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card > img{
+        aspect-ratio:4/3!important;
+      }
+    }
+
 </style>
 
 
@@ -1359,7 +1415,7 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
             
     <section class="process-section"><div class="wrap process-layout"><div class="process-copy"><span class="eyebrow">Yaratımın arkasında</span><h2>Güçlü sonuç,<br><em>iyi kurgulanmış süreç.</em></h2><p>Final görselinden önce fikir, ürün analizi, sahne tasarımı ve görsel dil gelir. Her adım, ortaya çıkan işin tutarlılığını güçlendirir.</p><ol class="process-list"><li><span>01</span><div><strong>Keşif & ürün analizi</strong><small>Ürünün formu, dokusu ve marka ihtiyacı.</small></div></li><li><span>02</span><div><strong>Konsept & sanat yönetimi</strong><small>Atmosfer, kadraj ve görsel dünya.</small></div></li><li><span>03</span><div><strong>Üretim & hareket</strong><small>Görsel, storyboard ve video üretimi.</small></div></li><li><span>04</span><div><strong>Son dokunuş</strong><small>Marka diline uygun final sunumu.</small></div></li></ol></div></div></section>
     <section class="portfolio" id="portfoy"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Çalışma seçkisi</span><h2>Ürünler,<br><em>başka açılardan.</em></h2></div><div><p>Moda, giyim, takı, çanta, aksesuar ve mobilya projelerinden seçili üretimler.</p><a class="text-link" href="https://www.instagram.com/tugce.creative/" target="_blank" rel="noreferrer">Instagram profilini aç ↗</a></div></div>
-      <div class="portfolio-catalog" aria-label="Çalışma kategorileri">
+      <div class="portfolio-catalog" id="portfolio-category-track" aria-label="Çalışma kategorileri">
         <button class="catalog-card" type="button" data-open-category="fashion"><img src="media/fashion-couple-vertical.jpg" alt=""><span class="catalog-index">01 / KATEGORİ</span><strong>Moda &amp; Giyim</strong><span class="catalog-discover">Tüm görselleri keşfet ↗</span><span class="catalog-arrow">↗</span></button>
         <button class="catalog-card" type="button" data-open-category="jewelry"><img src="media/earring-mirror-model.jpg" alt=""><span class="catalog-index">02 / KATEGORİ</span><strong>Takı &amp; Aksesuar</strong><span class="catalog-discover">Tüm görselleri keşfet ↗</span><span class="catalog-arrow">↗</span></button>
         <button class="catalog-card" type="button" data-open-category="furniture"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/4967ced1-7956-4b04-91b0-882817c8dc87.png" alt=""><span class="catalog-index">03 / KATEGORİ</span><strong>Mobilya</strong><span class="catalog-discover">Tüm görselleri keşfet ↗</span><span class="catalog-arrow">↗</span></button>
