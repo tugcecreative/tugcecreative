@@ -1203,228 +1203,7 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
       object-position:center center!important;
       margin:0!important;
     }
-  
-    /* Editorial Grid — asimetrik, dergi düzeninde portföy galerisi */
-    .portfolio-results .project-grid{
-      grid-template-columns:repeat(12,minmax(0,1fr));
-      column-gap:24px;
-      row-gap:42px;
-      align-items:start;
-    }
-    .portfolio-results .project-grid > .project{
-      grid-column:span 6;
-      min-width:0;
-    }
-    .portfolio-results .project-grid > .project:nth-child(6n+1){grid-column:span 7}
-    .portfolio-results .project-grid > .project:nth-child(6n+2){grid-column:span 5;margin-top:64px}
-    .portfolio-results .project-grid > .project:nth-child(6n+3){grid-column:span 5}
-    .portfolio-results .project-grid > .project:nth-child(6n+4){grid-column:span 7;margin-top:52px}
-    .portfolio-results .project-grid > .project:nth-child(6n+5){grid-column:span 6}
-    .portfolio-results .project-grid > .project:nth-child(6n){grid-column:span 6;margin-top:38px}
-    .portfolio-results .project-grid > .project img{width:100%;height:auto;object-fit:contain}
-    @media(max-width:760px){
-      .portfolio-results .project-grid{grid-template-columns:repeat(6,minmax(0,1fr));column-gap:12px;row-gap:28px}
-      .portfolio-results .project-grid > .project,
-      .portfolio-results .project-grid > .project:nth-child(6n+1),
-      .portfolio-results .project-grid > .project:nth-child(6n+2),
-      .portfolio-results .project-grid > .project:nth-child(6n+3),
-      .portfolio-results .project-grid > .project:nth-child(6n+4),
-      .portfolio-results .project-grid > .project:nth-child(6n+5),
-      .portfolio-results .project-grid > .project:nth-child(6n){grid-column:span 3;margin-top:0}
-      .portfolio-results .project-grid > .project:nth-child(4n+1),
-      .portfolio-results .project-grid > .project:nth-child(4n){grid-column:span 6}
-      .portfolio-results .project-caption{padding:10px 2px 2px}
-      .portfolio-results .project-caption strong{font-size:14px}
-    }
-
-
-    /* Horizontal editorial gallery — tek sıra, yatay kaydırma */
-    .portfolio-results .project-grid{
-      display:flex!important;
-      flex-wrap:nowrap!important;
-      gap:26px!important;
-      overflow-x:auto!important;
-      overflow-y:hidden!important;
-      padding:4px 2px 22px!important;
-      margin-right:calc((min(100vw - 48px, 1200px) - 100%)/2);
-      scroll-snap-type:x mandatory;
-      scroll-padding-left:2px;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:thin;
-      scrollbar-color:#858675 #292a25;
-    }
-    .portfolio-results .project-grid > .project{
-      display:block;
-      flex:0 0 min(72%,760px)!important;
-      width:min(72%,760px)!important;
-      min-width:0!important;
-      margin:0!important;
-      scroll-snap-align:start;
-    }
-    .portfolio-results .project-grid > .project img{
-      display:block;
-      width:100%;
-      height:auto;
-      object-fit:contain;
-    }
-    .portfolio-results .project-grid::-webkit-scrollbar{height:5px}
-    .portfolio-results .project-grid::-webkit-scrollbar-track{background:#292a25}
-    .portfolio-results .project-grid::-webkit-scrollbar-thumb{background:#858675;border-radius:10px}
-    @media(max-width:760px){
-      .portfolio-results .project-grid{
-        gap:14px!important;
-        padding-bottom:18px!important;
-        margin-right:-18px;
-        padding-right:18px!important;
-      }
-      .portfolio-results .project-grid > .project{
-        flex-basis:86%!important;
-        width:86%!important;
-      }
-    }
-
-
-    /* Kategori kataloğu: yatay, sinematik kaydırma galerisi */
-    .portfolio-catalog{
-      display:flex!important;
-      flex-wrap:nowrap!important;
-      gap:28px!important;
-      overflow-x:auto!important;
-      overflow-y:hidden!important;
-      padding:4px 2px 24px!important;
-      margin-top:34px!important;
-      scroll-snap-type:x mandatory;
-      scroll-padding-left:2px;
-      -webkit-overflow-scrolling:touch;
-      scrollbar-width:thin;
-      scrollbar-color:#a59a8b #ded8cf;
-    }
-    .portfolio-catalog .catalog-card{
-      flex:0 0 62%!important;
-      width:62%!important;
-      min-width:0!important;
-      scroll-snap-align:start;
-      padding-bottom:20px!important;
-    }
-    .portfolio-catalog .catalog-card>img{
-      display:block;
-      width:100%!important;
-      height:auto!important;
-      aspect-ratio:16/9!important;
-      object-fit:cover!important;
-      object-position:center center!important;
-      margin-bottom:18px!important;
-      background:transparent!important;
-      opacity:1!important;
-      transition:transform .7s ease!important;
-    }
-    .portfolio-catalog .catalog-card:hover>img{transform:scale(.985)}
-    .portfolio-catalog::-webkit-scrollbar{height:5px}
-    .portfolio-catalog::-webkit-scrollbar-track{background:#ded8cf}
-    .portfolio-catalog::-webkit-scrollbar-thumb{background:#a59a8b;border-radius:10px}
-    @media(max-width:760px){
-      .portfolio-catalog{
-        gap:16px!important;
-        margin-top:25px!important;
-        padding:2px 18px 20px 2px!important;
-        margin-right:-18px!important;
-      }
-      .portfolio-catalog .catalog-card{
-        flex-basis:88%!important;
-        width:88%!important;
-        padding-bottom:16px!important;
-      }
-      .portfolio-catalog .catalog-card>img{
-        aspect-ratio:4/3!important;
-        margin-bottom:13px!important;
-      }
-    }
-
-
-    /* FORCE: horizontal category cover rail */
-    html body main section#portfoy .wrap #portfolio-category-track{
-      display:flex!important;
-      flex-direction:row!important;
-      flex-wrap:nowrap!important;
-      align-items:stretch!important;
-      justify-content:flex-start!important;
-      gap:30px!important;
-      width:100%!important;
-      max-width:100%!important;
-      overflow-x:auto!important;
-      overflow-y:hidden!important;
-      padding:0 2px 26px!important;
-      margin:34px 0 0!important;
-      box-sizing:border-box!important;
-      scroll-snap-type:x mandatory!important;
-      -webkit-overflow-scrolling:touch!important;
-      scrollbar-width:thin!important;
-    }
-    html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card{
-      display:flex!important;
-      flex:0 0 72%!important;
-      width:72%!important;
-      max-width:72%!important;
-      min-width:72%!important;
-      margin:0!important;
-      scroll-snap-align:start!important;
-      box-sizing:border-box!important;
-    }
-    html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card > img{
-      width:100%!important;
-      height:auto!important;
-      aspect-ratio:16/9!important;
-      object-fit:cover!important;
-      object-position:center!important;
-    }
-    @media(max-width:760px){
-      html body main section#portfoy .wrap #portfolio-category-track{
-        gap:16px!important;
-        margin-top:25px!important;
-        padding:0 18px 22px 2px!important;
-        margin-right:-18px!important;
-        width:calc(100% + 18px)!important;
-      }
-      html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card{
-        flex-basis:88%!important;
-        width:88%!important;
-        max-width:88%!important;
-        min-width:88%!important;
-      }
-      html body main section#portfoy .wrap #portfolio-category-track > button.catalog-card > img{
-        aspect-ratio:4/3!important;
-      }
-    }
-
-
-    /* Kategori seçkisi: dikey sıralı, her kategoride ayrı dokunmatik yatay galeri */
-    #portfolio-category-track.category-showcase{display:flex!important;flex-direction:column!important;gap:68px!important;margin:46px 0 0!important;width:100%!important;overflow:visible!important;padding:0!important}
-    .category-showcase-row{display:grid;grid-template-columns:minmax(190px, .28fr) minmax(0,1fr);align-items:center;gap:38px;padding:0 0 42px;border-bottom:1px solid rgba(80,78,68,.22)}
-    .category-showcase-info h3{font:500 clamp(24px,3vw,38px) var(--serif);margin:13px 0 16px;color:var(--ink)}
-    .category-view-all{padding:0;border:0;border-bottom:1px solid currentColor;background:none;color:var(--muted);font:500 12px var(--sans);cursor:pointer}
-    .category-carousel{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;align-items:center;gap:14px;min-width:0}
-    .category-gallery-track{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;min-width:0}
-    .category-gallery-track::-webkit-scrollbar{display:none}
-    .category-gallery-slide{flex:0 0 78%;min-width:0;scroll-snap-align:center;margin:0}
-    .category-gallery-slide img{display:block;width:100%;height:clamp(260px,31vw,440px);object-fit:contain;background:rgba(0,0,0,.025)}
-    .category-gallery-slide figcaption{font-size:11px;color:var(--muted);padding-top:10px}
-    .gallery-arrow{width:40px;height:40px;border:1px solid rgba(80,78,68,.35);border-radius:50%;background:transparent;color:var(--ink);font-size:27px;line-height:1;display:grid;place-items:center;cursor:pointer;transition:background .2s,color .2s}
-    .gallery-arrow:hover{background:var(--ink);color:var(--paper)}
-    @media(max-width:760px){
-      #portfolio-category-track.category-showcase{gap:42px!important;margin-top:28px!important}
-      .category-showcase-row{grid-template-columns:1fr;gap:16px;padding-bottom:28px}
-      .category-showcase-info{display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:10px}
-      .category-showcase-info .catalog-index{grid-column:1/-1;margin-bottom:3px}
-      .category-showcase-info h3{font-size:25px;margin:5px 0 0}
-      .category-view-all{font-size:11px;justify-self:end}
-      .category-carousel{grid-template-columns:30px minmax(0,1fr) 30px;gap:8px}
-      .gallery-arrow{width:30px;height:30px;font-size:22px}
-      .category-gallery-track{gap:12px}
-      .category-gallery-slide{flex-basis:100%}
-      .category-gallery-slide img{height:auto;max-height:62vh;aspect-ratio:4/3;object-fit:contain}
-    }
-
-</style>
+  </style>
 
 
 </head>
@@ -1443,19 +1222,10 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
             
     <section class="process-section"><div class="wrap process-layout"><div class="process-copy"><span class="eyebrow">Yaratımın arkasında</span><h2>Güçlü sonuç,<br><em>iyi kurgulanmış süreç.</em></h2><p>Final görselinden önce fikir, ürün analizi, sahne tasarımı ve görsel dil gelir. Her adım, ortaya çıkan işin tutarlılığını güçlendirir.</p><ol class="process-list"><li><span>01</span><div><strong>Keşif & ürün analizi</strong><small>Ürünün formu, dokusu ve marka ihtiyacı.</small></div></li><li><span>02</span><div><strong>Konsept & sanat yönetimi</strong><small>Atmosfer, kadraj ve görsel dünya.</small></div></li><li><span>03</span><div><strong>Üretim & hareket</strong><small>Görsel, storyboard ve video üretimi.</small></div></li><li><span>04</span><div><strong>Son dokunuş</strong><small>Marka diline uygun final sunumu.</small></div></li></ol></div></div></section>
     <section class="portfolio" id="portfoy"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Çalışma seçkisi</span><h2>Ürünler,<br><em>başka açılardan.</em></h2></div><div><p>Moda, giyim, takı, çanta, aksesuar ve mobilya projelerinden seçili üretimler.</p><a class="text-link" href="https://www.instagram.com/tugce.creative/" target="_blank" rel="noreferrer">Instagram profilini aç ↗</a></div></div>
-      <div class="portfolio-catalog category-showcase" id="portfolio-category-track" aria-label="Çalışma kategorileri">
-        <section class="category-showcase-row" data-gallery-category="fashion">
-          <div class="category-showcase-info"><span class="catalog-index">01 / KATEGORİ</span><h3>Moda &amp; Giyim</h3><button type="button" class="category-view-all" data-open-category="fashion">Tüm görselleri keşfet ↗</button></div>
-          <div class="category-carousel"><button type="button" class="gallery-arrow gallery-prev" aria-label="Önceki görsel">‹</button><div class="category-gallery-track" tabindex="0" aria-label="Moda ve giyim görselleri"></div><button type="button" class="gallery-arrow gallery-next" aria-label="Sonraki görsel">›</button></div>
-        </section>
-        <section class="category-showcase-row" data-gallery-category="jewelry">
-          <div class="category-showcase-info"><span class="catalog-index">02 / KATEGORİ</span><h3>Takı &amp; Aksesuar</h3><button type="button" class="category-view-all" data-open-category="jewelry">Tüm görselleri keşfet ↗</button></div>
-          <div class="category-carousel"><button type="button" class="gallery-arrow gallery-prev" aria-label="Önceki görsel">‹</button><div class="category-gallery-track" tabindex="0" aria-label="Takı ve aksesuar görselleri"></div><button type="button" class="gallery-arrow gallery-next" aria-label="Sonraki görsel">›</button></div>
-        </section>
-        <section class="category-showcase-row" data-gallery-category="furniture">
-          <div class="category-showcase-info"><span class="catalog-index">03 / KATEGORİ</span><h3>Mobilya</h3><button type="button" class="category-view-all" data-open-category="furniture">Tüm görselleri keşfet ↗</button></div>
-          <div class="category-carousel"><button type="button" class="gallery-arrow gallery-prev" aria-label="Önceki görsel">‹</button><div class="category-gallery-track" tabindex="0" aria-label="Mobilya görselleri"></div><button type="button" class="gallery-arrow gallery-next" aria-label="Sonraki görsel">›</button></div>
-        </section>
+      <div class="portfolio-catalog" aria-label="Çalışma kategorileri">
+        <button class="catalog-card" type="button" data-open-category="fashion"><img src="media/fashion-couple-vertical.jpg" alt=""><span class="catalog-index">01 / KATEGORİ</span><strong>Moda &amp; Giyim</strong><span class="catalog-discover">Tüm görselleri keşfet ↗</span><span class="catalog-arrow">↗</span></button>
+        <button class="catalog-card" type="button" data-open-category="jewelry"><img src="media/earring-mirror-model.jpg" alt=""><span class="catalog-index">02 / KATEGORİ</span><strong>Takı &amp; Aksesuar</strong><span class="catalog-discover">Tüm görselleri keşfet ↗</span><span class="catalog-arrow">↗</span></button>
+        <button class="catalog-card" type="button" data-open-category="furniture"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/4967ced1-7956-4b04-91b0-882817c8dc87.png" alt=""><span class="catalog-index">03 / KATEGORİ</span><strong>Mobilya</strong><span class="catalog-discover">Tüm görselleri keşfet ↗</span><span class="catalog-arrow">↗</span></button>
       </div>
       <div class="portfolio-results" hidden>
         <div class="portfolio-results-head"><button type="button" class="portfolio-back">← Tüm kategoriler</button><span class="portfolio-current-label"></span></div>
@@ -1553,30 +1323,36 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
     const moreButton=document.querySelector('.portfolio-more');
     const currentLabel=document.querySelector('.portfolio-current-label');
     const categoryNames={fashion:'Moda & Giyim',jewelry:'Takı & Aksesuar',furniture:'Mobilya'};
-    // Her kategori kendi görselleriyle yatay kaydırılabilir bir galeri olarak gösterilir.
-    document.querySelectorAll('.category-showcase-row').forEach(row=>{
-      const category=row.dataset.galleryCategory;
-      const track=row.querySelector('.category-gallery-track');
-      const sourceProjects=Array.from(projectGrid.querySelectorAll('.project[data-category="'+category+'"]'));
-      sourceProjects.forEach(project=>{
-        const source=project.querySelector('img');
-        if(!source)return;
-        const figure=document.createElement('figure');
-        figure.className='category-gallery-slide';
-        const img=document.createElement('img');
-        img.src=source.currentSrc||source.src;
-        img.alt=source.alt||'';
-        img.loading='lazy';
-        figure.appendChild(img);
-        const title=project.querySelector('.project-caption strong');
-        if(title){const caption=document.createElement('figcaption');caption.textContent=title.textContent;figure.appendChild(caption);}
-        track.appendChild(figure);
+    // Her kategori kartında, katalogdaki tüm görselleri (kapak dahil) sırayla göster.
+    (function initCatalogSlides(){
+      const cards=Array.from(catalog.querySelectorAll('.catalog-card[data-open-category]'));
+      cards.forEach(card=>{
+        const category=card.dataset.openCategory;
+        const cover=card.querySelector('img');
+        if(!cover) return;
+        const sources=[cover,...Array.from(projectGrid.querySelectorAll('.project[data-category="'+category+'"] img'))]
+          .map(img=>({src:img.getAttribute('src')||img.getAttribute('data-src')||img.currentSrc,alt:img.getAttribute('alt')||cover.alt}))
+          .filter(item=>item.src);
+        const slides=sources.filter((item,index,list)=>list.findIndex(other=>other.src===item.src)===index);
+        if(slides.length<2) return;
+        let index=0;
+        window.setInterval(()=>{
+          if(document.hidden || !card.isConnected) return;
+          index=(index+1)%slides.length;
+          const next=slides[index];
+          const preload=new Image();
+          preload.onload=()=>{
+            cover.classList.add('is-changing');
+            window.setTimeout(()=>{
+              cover.src=next.src;
+              cover.alt=next.alt;
+              cover.classList.remove('is-changing');
+            },220);
+          };
+          preload.src=next.src;
+        },2800);
       });
-      const prev=row.querySelector('.gallery-prev'),next=row.querySelector('.gallery-next');
-      const step=()=>Math.max(track.clientWidth*.82,240);
-      prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
-      next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
-    });
+    })();
     let activeCategory=null;
     function showCategory(category){
       activeCategory=category;catalog.hidden=true;results.hidden=false;currentLabel.textContent=categoryNames[category]||'';
