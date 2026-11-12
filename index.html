@@ -194,6 +194,12 @@
     .portfolio-filter{appearance:none;border:1px solid #56574d;background:transparent;color:#e8e7df;border-radius:999px;padding:11px 17px;font:500 12px 'DM Sans',sans-serif;letter-spacing:.02em;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
     .portfolio-filter:hover,.portfolio-filter.is-active{background:#c8c9a8;color:#10110f;border-color:#c8c9a8}
     .project[hidden],.furniture-feature[hidden],.video-card[hidden]{display:none!important}
+    .project-format-group{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .project-format-group[hidden]{display:none!important}
+    .project-format-heading{grid-column:1/-1;margin:22px 0 0;padding-bottom:10px;border-bottom:1px solid #56574d;color:#c8c9a8;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+    .project-format-group .project{min-width:0}
+    @media(max-width:600px){.project-format-group{gap:20px 12px}}
+
     .videos.is-filter-empty{display:none}
     @media(max-width:600px){.portfolio-filters{gap:8px;margin-bottom:24px}.portfolio-filter{padding:10px 13px;font-size:11px}}
       .video-card video.wide-video{aspect-ratio:16/9!important;width:100%;height:auto!important;object-fit:contain;background:#111}
@@ -1355,8 +1361,48 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
     const categoryNames={fashion:'Moda & Giyim',jewelry:'Takı & Aksesuar',furniture:'Mobilya'};
     // Kategori kapak görselleri sabit tutulur; otomatik slayt gösterisi kullanılmaz.
     let activeCategory=null;
-    function showCategory(category){
+    let jewelryFormatsOrganized=false;
+    async function organizeJewelryFormats(){
+      if(jewelryFormatsOrganized)return;
+      const cards=Array.from(projectGrid.querySelectorAll('.project[data-category="jewelry"]'));
+      await Promise.all(cards.map(card=>{
+        const img=card.querySelector('img');
+        if(!img.complete){img.loading='eager';return new Promise(resolve=>{img.addEventListener('load',resolve,{once:true});img.addEventListener('error',resolve,{once:true});});}
+        return Promise.resolve();
+      }));
+      const groups=[
+        {key:'portrait-3-4',label:'3:4 FORMAT',cards:[]},
+        {key:'vertical-9-16',label:'9:16 FORMAT',cards:[]},
+        {key:'landscape-16-9',label:'16:9 FORMAT',cards:[]},
+        {key:'other',label:'DİĞER FORMATLAR',cards:[]}
+      ];
+      cards.forEach(card=>{
+        const img=card.querySelector('img');
+        const ratio=img.naturalWidth&&img.naturalHeight?img.naturalWidth/img.naturalHeight:0;
+        let group='other';
+        if(Math.abs(ratio-0.75)<0.07)group='portrait-3-4';
+        else if(Math.abs(ratio-(9/16))<0.055)group='vertical-9-16';
+        else if(Math.abs(ratio-(16/9))<0.09)group='landscape-16-9';
+        groups.find(item=>item.key===group).cards.push(card);
+      });
+      groups.forEach(group=>{
+        if(!group.cards.length)return;
+        const wrapper=document.createElement('section');
+        wrapper.className='project-format-group';
+        wrapper.dataset.formatGroup=group.key;
+        const heading=document.createElement('h3');
+        heading.className='project-format-heading';
+        heading.textContent=group.label;
+        wrapper.appendChild(heading);
+        group.cards.forEach(card=>{card.hidden=false;wrapper.appendChild(card);});
+        projectGrid.appendChild(wrapper);
+      });
+      jewelryFormatsOrganized=true;
+    }
+    async function showCategory(category){
       activeCategory=category;catalog.hidden=true;results.hidden=false;currentLabel.textContent=categoryNames[category]||'';
+      if(category==='jewelry')await organizeJewelryFormats();
+      projectGrid.querySelectorAll('.project-format-group').forEach(group=>{group.hidden=category!=='jewelry';});
       const projects=Array.from(projectGrid.querySelectorAll('.project[data-category]'));
       projects.forEach(card=>{card.hidden=card.dataset.category!==category;});
       const visible=projects.filter(card=>!card.hidden);
