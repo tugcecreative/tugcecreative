@@ -1230,6 +1230,14 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
  #videolar .landscape-video-row{grid-template-columns:1fr!important;gap:28px!important;margin-top:30px!important}
  #videolar details.more-videos{margin-top:30px!important}
 }
+
+/* Takı kataloğu: siyah kapitone çanta, kehribar bilekliğin hemen altında aynı sütunda yer alsın. */
+@media (min-width:761px){
+  .project-grid .project:has(img[alt*="kehribar taşlı altın bileklik"]),
+  .project-grid .project:has(img[alt*="Klasik otomobilin penceresinden"]) {
+    grid-column:2;
+  }
+}
 </style>
 
 
