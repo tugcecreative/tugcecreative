@@ -1569,9 +1569,18 @@ html body .before .comparison-card .comparison-earring .after-reveal img{
     'media/avatar-child-portrait.jpg',
     'media/avatar-toddler.jpg',
     'media/avatar-woman-mature.jpg',
-    'media/avatar-man-mature.jpg'
+    'media/avatar-man-mature.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/8a318dc0-f709-4ddc-9260-f27aa2027567.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/9e05a66f-40b3-41c9-9a4d-caa5746d1b35.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/c3269ead-3bef-48d8-83c3-cec6c5211736.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/0e1f26a7-f4a9-41fa-95f6-6d03de7f0a56.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/a431824a-d144-4d6b-b753-b5a823b5da2a.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/eb28e46b-c224-42c5-b72f-34c1af6df8cc.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/7d76fc95-2f6f-4535-8104-317fc5d67bfe.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/5bd97ab3-83ed-4be2-ac2f-6d5c0bebeff2.jpg',
+    'https://d2ol7oe51mr4n9.cloudfront.net/user_3JiZvvvv70W4CJpgYHjbgPOxcE1/8a16018a-7da0-403e-9721-285fc17d92e2.jpg'
   ];
-  const labels=['Kadın karakter portresi','Kadın karakter portresi','Genç kadın dijital avatar örneği','Genç erkek dijital avatar örneği','Kız çocuk dijital avatar örneği','Erkek çocuk dijital avatar örneği','Çocuk portresi dijital avatar örneği','Küçük yaş dijital avatar örneği','Olgun kadın dijital avatar örneği','Olgun erkek dijital avatar örneği'];
+  const labels=['Kadın karakter portresi','Kadın karakter portresi','Genç kadın dijital avatar örneği','Genç erkek dijital avatar örneği','Kız çocuk dijital avatar örneği','Erkek çocuk dijital avatar örneği','Çocuk portresi dijital avatar örneği','Küçük yaş dijital avatar örneği','Olgun kadın dijital avatar örneği','Olgun erkek dijital avatar örneği','Kızıl saçlı çocuk karakter','Erkek karakter portresi','Erkek karakter portresi','Sakallı erkek karakter','Kızıl saçlı erkek karakter','Sarı saçlı kadın karakter','Kadın karakter portresi','Uzun saçlı kadın karakter','Kızıl saçlı çocuk karakter'];
   const slots=Array.from(gallery.querySelectorAll('img'));
   let current=slots.map(function(img){return images.findIndex(function(src){return img.getAttribute('src')===src || img.src===new URL(src,document.baseURI).href;});});
   function shuffled(items){
